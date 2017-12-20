@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="parent" style="width: 350px;height: 500px;border: 1px solid;" >
+			<div id="child1" style="width: 300px;height: 100px;border: 1px solid;">
+				aaaa
+			</div>
+			<div id="child2" style="width: 300px;height: 100px;border: 1px solid;">
+				vbbb
+			</div>
+			<div id="child3" style="width: 300px;height: 100px;border: 1px solid;">
+				ccccc
+			</div>
+		</div>
+		<input type="button"  value="add" onclick="delElement();"/>
+	</body>
+	<script type="text/javascript">
+		function delElement(){
+			//父亲删儿子
+			/*var child2=document.getElementById("child2");
+			var parent=document.getElementById("parent");
+			parent.removeChild(child2);
+			*/
+			
+			//自己删自己
+/*			var child2=document.getElementById("child2");
+			child2.remove();*/
+			
+			//删除所有
+			var parent=document.getElementById("parent");
+			parent.remove();
+
+
+		} 
+	</script>
+</html>

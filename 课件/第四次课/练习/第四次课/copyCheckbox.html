@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table border="1">
+			<tr>
+				<td><input type="checkbox" name="cb" onclick="add()"/></td>
+				<td>data1</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="cb" onclick="add()"/></td>
+				<td>data2</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="cb" onclick="add()"/></td>
+				<td>data3</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="cb" onclick="add()"/></td>
+				<td>data4</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="cb" onclick="add()"/></td>
+				<td>data5</td>
+			</tr>
+		</table>
+		
+		<br />
+		<table border="1" id="tab2">
+			<tr id="tr1">
+				<td>选择checkbox复制</td>
+			</tr>
+		</table>
+		
+		<script type="text/javascript">
+			function add(){
+				//alert("done");
+				var cbs=document.getElementsByName("cb");
+				//alert(cbs);
+				for (var i=0;i<cbs.length;i++) {
+					if(cbs[i].checked){
+						alert(cbs[i]+"被选中了");
+						//创建一个tr
+						var _tr= document.createElement("tr");
+						//创建一个td
+						var _td=document.createElement("td");
+						//得到table
+						var _tab2=document.getElementById("tab2");
+						//给创建的td添加内容
+						_td.innerText=cbs[i].parentElement.nextElementSibling.innerText;
+						//alert("被选中节点对应的值为："+cbs[i].parentElement.nextElementSibling.innerText);
+						alert(_td.innerText);
+						//给table添加一个tr
+						
+						//给tr添加一个td
+						_tr.appendChild(_td);
+						_tab2.appendChild(_tr);
+						
+					}
+				}
+				
+			}
+		</script>
+	</body>
+</html>

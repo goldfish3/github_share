@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var test = function(thisForm){
+				with(thisForm){
+					if(thisForm.username.value == null || 
+						thisForm.username.value == ""){
+							alert("用户名不能为空");
+							return false;
+						}
+					if(thisForm.password.value == null ||
+					   thisForm.password.value == ""){
+					   		alert("密码不能为空");
+					   		return false;
+					   }
+				}
+				return true;
+			}
+		</script>
+		<form action="" method="post" onsubmit="return test(this)">
+			用户名：<input type="text" name="username" id="username" value="" /><br>
+			密码：  <input type="text" name="password" id="password" value="" /><br>
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+</html>

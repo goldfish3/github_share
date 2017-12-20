@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+			<div id="p">
+				
+			</div>
+		<div id="parent" style="width: 200px;height: 200px;border: 1px solid;" >
+			
+		</div>
+		<input type="button" id="" value="move" onclick="move()" />
+	</body>
+	<script type="text/javascript">
+	/*	function move(){
+			//中间位置
+			
+			//absolute	
+			//生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。
+			//元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。
+			var parent=document.getElementById("parent");
+			parent.style.position="absolute";
+			parent.style.top="100px";
+			parent.style.left="100px";
+		}*/
+		document.onclick=function(e){
+			var ev = window.event||e;
+			var x = ev.clientX;
+			var y = ev.clientY;
+			if(document.getElementById("prt")){
+				document.getElementById("prt").remove();
+			}
+			var parent=document.createElement("div");
+			parent.id = "prt";
+			parent.style.width = "150px";
+			parent.style.height = "150px";
+			parent.style.background = "red";
+			parent.style.position="absolute";
+			parent.style.top=y+"px";
+			parent.style.left=x+"px";
+			
+			document.getElementById("p").appendChild(parent);
+		} 
+	</script>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table border="" id="tb" width="400px">
+			<tr>
+				<td>
+					<input type="checkbox" onclick="selectAll(this)"/>
+					全选
+				</td>
+				<td>data</td>
+				<td>data</td>
+				<td>data</td>
+				<td>操作</td>
+				<td>操作</td>
+				<td>操作</td>
+			</tr>
+		</table>
+		<button onclick="addLine()">添加行</button>
+		<button onclick="cancleLine()">删除选中行</button>
+		<script type="text/javascript">
+			var table = document.getElementById("tb");
+//			全选
+			var selectAll = function(checkBox){
+				if(checkBox.checked == true){
+					
+				}
+			};
+			var addLine = function(){
+				var newTr = createLine();
+				table.appendChild(newTr);
+			};
+			var createLine = function(){
+				var rowNum = table.rows.length;
+				var newTr = document.createElement("tr");
+				for(var i=0; i<7; i++){
+					var newTd =document.createElement("td");
+					switch (i){
+						case 0:
+							var cb = document.createElement("input");
+							cb.type = "checkbox";
+							newTd.appendChild(cb);
+							break;
+						case 1:
+							newTd.textContent = "john" + (rowNum).toString();
+							break;
+						case 2:
+							newTd.textContent = "Doe" + (rowNum).toString();
+							break;
+						case 3:
+							newTd.textContent = "Alaska" + (rowNum).toString();
+							break;
+						case 4:
+							var btn = document.createElement("button");
+							btn.onclick = moveAbove;
+							btn.textContent = "上移";
+							newTd.appendChild(btn);
+							break;
+						case 5:
+							var btn = document.createElement("button");
+							btn.onclick = moveDown;
+							btn.textContent = "下移";
+							newTd.appendChild(btn);
+							break;
+						default:
+							var btn = document.createElement("button");
+							btn.onclick = cancle;
+							btn.textContent = "刪除";
+							newTd.appendChild(btn);
+							break;
+					}
+					newTr.appendChild(newTd);
+				}
+				return newTr;
+			}
+			var cancleLine = function(){
+				var rowNum = table.rows.length;
+				for(var i=rowNum-1; i>=0; i--){
+					var row = table.children[i];
+					var ipt = row.firstElementChild.firstElementChild;
+//					alert(ipt.innerHTML);
+					if(ipt.checked == true){
+						table.removeChild(row);
+					}
+				}
+			};
+			var moveAbove = function(event){
+				var thisTr = this.parentElement.parentElement;
+				var preTr = thisTr.previousElementSibling;
+				if(!thisTr.previousElementSibling.isEqualNode(table.firstElementChild)){
+					table.insertBefore(thisTr,preTr);	
+				}
+			};
+			var moveDown = function(event){
+				var thisTr = this.parentElement.parentElement;
+				var nnTr = thisTr.nextElementSibling.nextElementSibling;
+				var lastTr = table.lastElementChild;
+				if(thisTr.isEqualNode(lastTr)){
+					return;
+				}
+				if(thisTr.isEqualNode(lastTr.previousElementSibling)){
+					table.appendChild(thisTr);
+					return;
+				}
+				table.insertBefore(thisTr,nnTr);
+			};
+			var cancle = function(event){
+//				alert(this);
+//				在任何一个函数中都可以用this获取调用函数的元素本身
+				var parent = this.parentElement.parentElement;
+				table.removeChild(parent);
+			};
+		</script>
+	</body>
+</html>

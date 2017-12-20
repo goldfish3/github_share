@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/d3.js">
+		</script>
+		<style type="text/css">
+			div.h-bar{
+				height: 20px;
+				background-color: purple;
+				margin-top: 5px;
+			}
+			span{
+				color: white;
+				float: right;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+				var data = [ // <-A
+	        {expense: 10, category: "Retail"},
+	        {expense: 15, category: "Gas"},
+	        {expense: 30, category: "Retail"},
+	        {expense: 50, category: "Dining"},
+	        {expense: 80, category: "Gas"},
+	        {expense: 65, category: "Retail"},
+	        {expense: 55, category: "Gas"},
+	        {expense: 30, category: "Dining"},
+	        {expense: 20, category: "Retail"},
+	        {expense: 10, category: "Dining"},
+	        {expense: 8, category: "Gas"}
+	    ];
+    		function render(data, category, isAll){
+    			d3.select("body").selectAll("div.h-bar").data(data)
+    			  .enter()
+    			  .append("div")
+    			  .attr("class", "h-bar")
+    			  .append("span");
+    		
+    			//exit和remove的作用就是将多余的标签元素移除
+    			d3.select("body").selectAll("div.h-bar").data(data).exit().remove();
+    		
+    			d3.select("body").selectAll("div.h-bar")
+    		  	  .data(data)
+    		  	  .attr("class", "h-bar")
+    		  	  .style("width", function(d){
+//  		  	  	  console.log((d.expense * 5) + "px");
+    		  		  return (d.expense * 5) + "px";
+    		  	  })
+    		  	  .select("span")
+    		  	  .text(function(d){
+    		  		  return d.category;
+    		  	  });
+    		  	
+	    		 var selectSet = d3.select("body").selectAll("div.h-bar").filter(function(d,i){
+	    		 	if(d.category == category){
+	    		 		if(isAll == true){
+	    		 			console.log("真");
+	    		 			d3.select(this).style("background-color","purple");
+	    		 		}else{
+	    		 			console.log("假");
+	    		 			d3.select(this).style("background-color","red");
+	    		 		}
+	    		 	};
+	    		 })
+    		 	 .classed("selected", true);
+    		 	 
+    		 	 selectSet.attr("color",function(d){
+    		 	 	console.log(d.category);
+    		 	 });
+    		}
+    		 render(data);
+      		 
+    		 function select(category,isAll){
+    		 	render(data, category, isAll);
+    		 }
+		</script>
+		<div class="control-group">
+			<button onclick="select('Retail',false)">
+				Retail
+			</button>
+			<button onclick="select('Gas',false)">
+				Gas
+			</button>
+			<button onclick="select('Dining',false)">
+				Dining
+			</button>
+			<button onclick="select('',true)">
+				Clear
+			</button>
+		</div>
+	</body>
+</html>

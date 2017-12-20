@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body onload="selInfo()">
+		<select name="aa" id="sel01" onchange="changeProvince(this)">
+			<option value="1">请选择</option>
+		</select>省
+		<select name="aa" id="sel02" onchange="changeCity(this)">
+			<option value="1">请选择</option>
+		</select>市
+		<select name="aa" id="sel03">
+			<option value="1">请选择</option>
+		</select>区
+	</body> 
+	<script type="text/javascript">
+		var sel01 = window.document.getElementById("sel01");
+		var sel02 = window.document.getElementById("sel02");
+		var sel03 = window.document.getElementById("sel03");
+		
+		//var a = {};//字面量创建对象
+		//json
+		//{},[],key:value
+		//省市区
+		//江西省
+		//南昌市
+		//	昌北区,西湖区,青云谱区
+		//九江市
+		//浔阳区,联西区
+		//湖南省:长沙市
+		//芙蓉区,开福区,雨花区,岳麓区,天心区
+		//湖南省:株洲市
+		//石峰区,荷塘区,天元区,芦淞区
+		//湖南省:湘潭市
+		//雨湖区,岳塘区
+		var str = {
+			"province": [{
+				"provName": "江西省",
+				"cityList": [{
+					"cityName": "南昌市",
+					"areaList": [{
+						"areaName": "西湖区"
+					}, {
+						"areaName": "昌北区"
+					}, {
+						"areaName": "青云谱区"
+					}]
+				}, {
+					"cityName": "九江市",
+					"areaList": [{
+						"areaName": "浔江区"
+					}, {
+						"areaName": "旧城区"
+					}]
+				},{
+					"cityName": "宜春市",
+					"areaList": [{
+						"areaName": "宜阳新区"
+					}, {
+						"areaName": "万载县"
+					},{
+						"areaName": "宜丰县"
+					}]
+				}
+				]
+			}, {
+				"provName": "湖南省",
+				"cityList": [{
+					"cityName": "长沙市",
+					"areaList": [{
+						"areaName": "岳麓区"
+					}, {
+						"areaName": "雨花区"
+					}, {
+						"areaName": "开福区"
+					}, {
+						"areaName": "芙蓉区"
+					}]
+				}, {
+					"cityName": "湘潭市",
+					"areaList": [{
+						"areaName": "岳塘区"
+					}, {
+						"areaName": "石峰区"
+					}, {
+						"areaName": "天元区"
+					}]
+				}]
+			}]
+		};
+		console.log(str.province[0].cityList[1].areaList[0].areaName);
+	</script>
+
+</html>

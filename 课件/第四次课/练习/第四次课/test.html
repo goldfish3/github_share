@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+			<div id="p">
+				
+			</div>
+
+		<input type="button" id="" value="move" onclick="move()" />
+	</body>
+	<script type="text/javascript">
+	
+		document.onclick=function(e){
+			var ev = window.event||e;
+			var x = ev.clientX;
+			
+			var y = ev.clientY;
+			//删除原来的点
+			if(document.getElementById("prt")){
+				document.getElementById("prt").remove();
+			}
+			var parent=document.createElement("div");
+			parent.id = "prt";
+			parent.style.position="absolute";
+			//---HTML流固定显示元素，就选择absolute
+			//它是以页面左上角为(0,0)，根据top,left,width,height来布局的
+			parent.style.width = "150px";
+			parent.style.height = "150px";
+			parent.style.background = "red";
+			parent.style.top=y+"px";
+			parent.style.left=x+"px";  
+			
+			document.getElementById("p").appendChild(parent);
+		}
+	</script>
+</html>

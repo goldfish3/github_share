@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<!--action用于设置表单提交的页面，action如果不设置，就是当前页面-->
+		<!--method用于设置提交的方法-->
+		<form action="" method="get">
+			<fieldset id="">
+				<legend>使用fieldset组织数据</legend>
+				用户名：<br>
+				<input type="text" name="username"/>
+				密码：<br>
+				<input type="text" name="password"/>
+				性别：<br>
+				男:<input type="radio" name="sex" value="male"/ checked>
+				女:<input type="radio" name="sex" value="female"/>
+				
+				<!--这里是通过name属性来判断是不是属于同一对radio-->
+				<!--name相同，就是同一对radio，两个选项只能选一个-->
+				无:<input type="radio" name="wu" value="wu" />
+				<!--提交-->
+				<input type="submit" name="" value="提交" />
+		</form>
+				
+			</fieldset>
+		<script type="text/javascript">
+			
+		</script>
+	</body>
+</html>

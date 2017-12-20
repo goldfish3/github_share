@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<input type="checkbox" name="chck" value="1" /> 
+		<input type="checkbox" name="chck" value="2" />
+		<input type="checkbox" name="chck" value="3" />
+		<input type="checkbox" name="chck" value="4" />
+	<script type="text/javascript">
+		var a = 2;
+		var chk = document.getElementsByName("chck");
+		
+		//有属性就修改，没有新增
+		
+		/*for (var i = 0; i < chk.length; i++) {
+			if(chk[i].value==a){
+				chk[i].setAttribute("checked",true);
+			}
+		} */
+		//查属性
+		/*for (var i = 0; i < chk.length; i++) {
+			//console.log(chk[i].getAttribute("value"));
+			console.log(chk[i].value);
+		}*/
+		
+		//删除属性
+	/*	for (var i = 0; i < chk.length; i++) {
+			//chk[i].removeAttribute("type");
+			chk[i].type = null;
+		}*/
+	</script>
+	</body>
+</html>

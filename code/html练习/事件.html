@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="boxf">
+			f
+			<div id="boxc">
+				c				
+			</div>
+		</div>
+		<script type="text/javascript">
+			var boxf = document.getElementById("boxf");
+			boxf.style.width = "100px";
+			boxf.style.height = "100px";
+			boxf.style.backgroundColor = "red";
+			
+			var boxc = document.getElementById("boxc");
+			boxc.style.width = "50px";
+			boxc.style.height = "50px";
+			boxc.style.backgroundColor = "green";
+			
+			boxf.addEventListener("click",function(event){
+				alert("f" + event.currentTarget.id);
+			},false);
+			boxc.addEventListener("click",function(event){
+				alert("c" + event.currentTarget.id);
+			},true);
+		</script>
+	</body>
+</html>

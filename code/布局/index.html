@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/d3.js">
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var dataSet = []
+			for(var i=0; i<10; i++){
+				var value = parseInt(Math.random() * 100);
+				dataSet.push(value);
+			}
+			var w = 300;
+			var h = 300;
+			var pie = d3.layout.pie();
+			var outerRadius = w / 2;
+			var innerRadius = 0;
+			var arc = d3.svg.arc()
+						.innerRadius(innerRadius)
+						.outerRadius(outerRadius);
+			//创建svg元素
+			var svg = d3.select("body").append("svg")
+						.attr("width", w)
+						.attr("height", h);
+			//准备分组			
+			var arcs = svg.selectAll("g.arc")
+						  .data(pie(dataSet))//pie函数能够将dataSet转换成适合生成饼图的对象数组
+						  .enter()
+						  .append("g")
+						  .attr("class", "arc")
+						  .attr("transform", "translate(" + outerRadius + "," + outerRadius + ")");
+			//绘制弧形路径
+			//下面这句代码自动生成了10总颜色的序数比例尺
+			var color = d3.scale.category10();
+			arcs.append("path").attr("fill", function(d,i){
+				return color(i);
+			})
+			.attr("d",arc);
+//			
+			//为每个扇形生成文本标签
+			arcs.append("text")
+				.attr("transform", function(d){
+					return "translate(" + arc.centroid(d) + ")";
+				})
+				.attr("text-anchor", "middle")
+				.text(function(d){
+					return d.value;
+				});
+			
+			
+		</script>
+	</body>
+</html>

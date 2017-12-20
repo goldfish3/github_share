@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			div.h-bar{
+				height: 15px;
+				background-color: purple;
+				/*position: relative;*/
+				/*这里是按顺时针，上 右 下 左*/
+				margin: 5px 5px 5px 5px;
+			}
+			span{
+				color: white;
+				float: right;
+			}
+		</style>
+		<script type="text/javascript" src="js/d3.js">
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var dataSet = [10,15,30,50,80,65,55,30,20,10,8];
+			function render(data){
+				//进入
+				d3.select("body").selectAll("div.h-bar")
+				  .data(dataSet)
+				  .enter()
+				  .append("div")
+				  .attr("class", "h-bar")
+				  .append("span");
+				//更新^
+				d3.select("body").selectAll("div.h-bar").data(dataSet)
+				  .style("width", function(d){
+				  	return (d * 3) + "px";
+				  })
+				  .select("span")
+				  .text(function(d){
+				  	return d;
+				  });
+				 //退出
+				 d3.select("body")
+				   .selectAll("div.h-bar")
+				   .data(dataSet)
+				   .exit().remove();
+			}
+			
+			//这是一个定时器，第一个参数是定时器要执行的函数，第二个参数是定时器刷新的间隔时间
+			setInterval(function(){
+				dataSet.shift();	//删除数组的第一个元素，并返回元素的值
+				dataSet.push(Math.round(Math.random() * 100));	  //round函数可以得出离里面参数最相近的整数
+				render(dataSet);
+			},1500);
+			
+			render(dataSet);
+		</script>
+	</body>
+</html>

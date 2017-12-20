@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body onload="selInfo()">
+		<select name="aa" id="sel01" onchange="changeProvince(this)">
+			<option value="1">请选择</option>
+		</select>省
+		<select name="aa" id="sel02" onchange="changeCity(this)">
+			<option value="1">请选择</option>
+		</select>市
+		<select name="aa" id="sel03">
+			<option value="1">请选择</option>
+		</select>区
+	</body>
+	<script type="text/javascript">
+		var sel01 = window.document.getElementById("sel01");
+		var sel02 = window.document.getElementById("sel02");
+		var sel03 = window.document.getElementById("sel03");
+		//页面加载执行添加省一级下拉列表
+		function selInfo() {
+			//从json对象中获取province的长度循环添加option
+			for(var i= 0;i<str.province.length;i++){
+				var sel01 = window.document.getElementById("sel01");
+				var opt = new Option(str.province[i].provName,i+2);
+				sel01.add(opt);
+			}
+		}
+		
+		//根据省选择动态添加市一级下拉选项
+		function changeProvince(obj){
+			//添加之前删除原有下拉列表
+			for(var i= obj.length;i>=1;i--){
+				sel02.remove(1);
+			}
+			for(var i= sel03.length;i>=1;i--){
+				sel03.remove(1);
+			}
+			
+			
+			addCity(obj.selectedIndex)//以选择下标为参数进行市一级下拉列表的添加
+		}
+		//添加市一级列表
+		function addCity(code){
+			var sel02 = window.document.getElementById("sel02");
+			//从json对象中获取cityList的长度循环添加option
+			if(code==0){
+				return;
+			}
+			for(var i= 0;i<str.province[code-1].cityList.length;i++){
+				var opt = new Option(str.province[code-1].cityList[i].cityName,i+2);
+				sel02.add(opt);
+			}
+		}
+		
+		//根据市选择动态添加县一级下拉选项
+		function changeCity(obj){
+			//添加之前删除原有下拉列表
+			for(var i= obj.length;i>=1;i--){
+				sel03.remove(1);
+			}
+			
+			//获取省一级的下标
+			var sel01 = window.document.getElementById("sel01");
+			console.log(obj.selectedIndex);
+			addArea(sel01.selectedIndex,obj.selectedIndex)//以选择下标为参数进行市一级下拉列表的添加
+		}
+		
+		function addArea(code1,code2){//两个参数分别为省下标和市下标
+			var sel03 = window.document.getElementById("sel03");
+			//从json对象中获取cityList的长度循环添加option
+			if(code2==0){
+				return;
+			}
+			for(var i= 0;i<str.province[code1-1].cityList[code2-1].areaList.length;i++){
+				
+				var opt = new Option(str.province[code1-1].cityList[code2-1].areaList[i].areaName,i+2);
+				sel03.add(opt);
+			}
+		}
+		//var a = {};//字面量创建对象
+		//json
+		//{},[],key:value
+		//省市区
+		//江西省
+		//南昌市
+		//	昌北区,西湖区,青云谱区
+		//九江市
+		//浔阳区,联西区
+		//湖南省:长沙市
+		//芙蓉区,开福区,雨花区,岳麓区,天心区
+		//湖南省:株洲市
+		//石峰区,荷塘区,天元区,芦淞区
+		//湖南省:湘潭市
+		//雨湖区,岳塘区
+		var str = {
+			"province": [{
+				"provName": "江西省",
+				"cityList": [{
+					"cityName": "南昌市",
+					"areaList": [{
+						"areaName": "西湖区"
+					}, {
+						"areaName": "昌北区"
+					}, {
+						"areaName": "青云谱区"
+					}]
+				}, {
+					"cityName": "九江市",
+					"areaList": [{
+						"areaName": "浔江区"
+					}, {
+						"areaName": "旧城区"
+					}]
+				},{
+					"cityName": "宜春市",
+					"areaList": [{
+						"areaName": "宜阳新区"
+					}, {
+						"areaName": "万载县"
+					},{
+						"areaName": "宜丰县"
+					}]
+				}
+				]
+			}, {
+				"provName": "湖南省",
+				"cityList": [{
+					"cityName": "长沙市",
+					"areaList": [{
+						"areaName": "岳麓区"
+					}, {
+						"areaName": "雨花区"
+					}, {
+						"areaName": "开福区"
+					}, {
+						"areaName": "芙蓉区"
+					}]
+				}, {
+					"cityName": "湘潭市",
+					"areaList": [{
+						"areaName": "岳塘区"
+					}, {
+						"areaName": "石峰区"
+					}, {
+						"areaName": "天元区"
+					}]
+				}]
+			}]
+		};
+		//console.log(str.province[0].cityList[1].areaList.length);
+	</script>
+
+</html>

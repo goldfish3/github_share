@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table border="" cellspacing="" cellpadding="" width="200px">
+			<tr>
+				<td>
+					<input type="checkbox" name="" id="" value="" onclick="selectItem(this)"/>
+				</td>
+				<td id="111">
+					数据1
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="checkbox" name="" id="" value="" onclick="selectItem(this)"/>
+				</td>
+				<td>
+					数据2
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="checkbox" name="" id="" value="" onclick="selectItem(this)"/>
+				</td>
+				<td>
+					数据3
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="checkbox" name="" id="" value="" onclick="selectItem(this)"/>
+				</td>
+				<td>
+					数据4
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="checkbox" name="" id="" value="" onclick="selectItem(this)"/>
+				</td>
+				<td>
+					数据5
+				</td>
+			</tr>
+		</table>
+		<table border="" cellspacing="" cellpadding="" width="200px" id="tb">
+			<tr><td>选择checkbox复制</td></tr>
+		</table>
+		<script type="text/javascript">
+			var tb = document.getElementById("tb");
+			var selectItem = function(thisItem){
+				var txt = thisItem.parentElement.parentElement.lastElementChild.innerText;
+				if(thisItem.checked == false){
+					var tds = tb.getElementsByTagName("td");
+					for(var i=0; i<tds.length; i++){
+						var td = tds[i];
+						if(td.innerText == txt){
+							tb.removeChild(td.parentElement);
+						}
+					}
+				}else{
+					var tr = document.createElement("tr");
+					var td = document.createElement("td");
+					td.innerText = txt;
+					tr.appendChild(td);
+					tb.appendChild(tr);	
+				}
+			};
+		</script>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.txt{
+				width: 100px;
+				height: 150px;
+				border: 1px solid black;
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>
+		<textarea name="" rows="" cols="" class="txt" id="txt1"></textarea>
+		<button id="trans" onclick="trans()">
+		转换
+		</button>
+		<textarea name="" rows="" cols="" class="txt" id="txt2"></textarea><br/>
+		请输入一个邮箱号：<textarea name="" rows="1" id="mail"></textarea><br/>
+		<button onclick="test()">验证</button>
+		<script type="text/javascript">
+			var leftTxt = document.getElementById("txt1");
+			var rightTxt = document.getElementById("txt2");
+			var trans = function(){
+				var content = leftTxt.value;
+				//这里g是匹配多次
+				// | 是或的意思
+				var rel = /共产党|公安局|习近平/g;
+				content = content.replace(rel,"***");
+				rightTxt.value = content;
+			};
+			var test = function(){
+				var mail = document.getElementById("mail");
+				var rel2 = /\w+@[0-9a-z]+\.com|cn/i;
+				var answer = mail.value.match(rel2);
+				if (answer == null) {
+					alert("邮箱名错误");
+					return;
+				}
+				if (answer.length > 0) {
+					alert("邮箱名正确");
+				}else{
+					alert("邮箱名错误");
+				}
+			};
+		</script>
+	</body>
+</html>

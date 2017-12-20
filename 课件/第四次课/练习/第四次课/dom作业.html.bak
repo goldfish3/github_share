@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table id = "myTable" border="1">
+		<tr >
+			<td><input type="checkbox" onclick="selectAll(this)"/>全选</td>
+		    <td align="left" id = "td1">data</td>
+		    <td>data</td>
+		    <td>data</td>
+		    <td>操作</td>
+		    <td>操作</td>
+			<td>操作</td
+		 </tr>
+		<tr >
+		<td><input type="checkbox"/></td>
+		    <td align="left" id = "td1">John1</td>
+		    <td>Doe1</td>
+		    <td>Alaska1</td>
+		    <td><input type="button" value="上移" onclick="moveUp(this)"/></td>
+		    <td><input type="button" value="下移" onclick="moveDown(this)"/></td>
+			<td><input type="button" value="删除" onclick="del(this)"/></td>
+		 </tr>
+		 <tr >
+		 <td><input type="checkbox"/></td>
+		    <td align="left" id = "td1">John2</td>
+		    <td>Doe2</td>
+		    <td>Alaska2</td>
+		    <td><input type="button" value="上移" onclick="moveUp(this)"/></td>
+		    <td><input type="button" value="下移" onclick="moveDown(this)"/></td>
+			<td><input type="button" value="删除" onclick="del(this)"/></td>
+		 </tr>
+		 <tr >
+		 <td><input type="checkbox"/></td>
+		    <td align="left" id = "td1">John3</td>
+		    <td>Doe3</td>
+		    <td>Alaska3</td>
+		    <td><input type="button" value="上移" onclick="moveUp(this)"/></td>
+		    <td><input type="button" value="下移" onclick="moveDown(this)"/></td>
+			<td><input type="button" value="删除" onclick="del(this)"/></td>
+		 </tr>
+		</table>
+		<input type="button" value="添加行" onclick=" createRow()"/>
+		<input type="button" value="删除选中行" onclick="selectRowDel()"/>
+	</body>
+	<script type="text/javascript">
+		var num=4;
+		var tableObj=document.getElementById("myTable");//table对象
+		var firstTrObj=tableObj.rows[1];
+		var clone=firstTrObj.cloneNode(true);//克隆第一行
+		function moveUp(row){
+			var crtNode = row.parentNode.parentNode;//row
+			console.info(crtNode.nodeName);
+			var prtNode = crtNode.parentNode;//table
+			var lastNode = crtNode.previousSibling;//previousrow --
+			console.info(lastNode.nodeName);
+			while(lastNode && lastNode.nodeType !=1){
+				lastNode = lastNode.previousSibling;
+			}
+			repreNode=lastNode.previousSibling;//前两行
+			while(repreNode && repreNode.nodeType !=1){
+				repreNode = repreNode.previousSibling;
+			}
+			if(repreNode){
+				prtNode.insertBefore(crtNode,lastNode);
+			}
+			
+		}
+		function moveDown(row){
+			var crtNode = row.parentNode.parentNode;//row
+			var prtNode = crtNode.parentNode;//table
+			var nextNode=crtNode.nextSibling;//nextrow
+			while(nextNode && nextNode.nodeType !=1){
+				nextNode = nextNode.nextSibling;
+			}
+			if(nextNode){
+				prtNode.insertBefore(nextNode,crtNode);
+			}
+		}
+		function del(row){
+			var crtNode = row.parentNode.parentNode;
+			crtNode.remove();
+			
+		}
+		function createRow(){
+			if(tableObj.rows[1]!=undefined){//如果数据没有全选删除，就克隆第一行的数据
+				var firstTrObj=tableObj.rows[1];
+				var clone1=firstTrObj.cloneNode(true);
+			}
+			else{//否则克隆全局变量clone
+				var clone1=clone;
+			}
+			//修改克隆这一行的内容
+				clone1.cells[0].innerHTML="<input type='checkbox'/>";
+				clone1.cells[1].innerHTML="John"+num;
+				clone1.cells[2].innerHTML="Doe"+num;
+				clone1.cells[3].innerHTML="Alaska"+num;
+				tableObj.appendChild(clone1);
+				num++;
+		}
+		function selectRowDel(){
+			for (var i = 0; i <tableObj.rows.length; i++) {
+				var checkTd=tableObj.rows[i].cells[0];//第i行第一列的td
+				var firstChild=checkTd.firstChild;//第i行第一列的checkBox
+				while(firstChild.nodeType!=1){
+					firstChild=firstChild.nextSibling;
+				}
+				if(firstChild.checked){//如果checkBox被选中
+					if(i!=0){//如果不是第一行，则删除整行
+						tableObj.rows[i].remove();
+						i--;
+					}
+					else{//如果是第一行，则全选复位为未被选中
+						firstChild.checked=false;
+					}
+				}
+			}
+		}
+		function selectAll(a){
+			for (var i = 1; i <tableObj.rows.length; i++) {
+				var checkTd=tableObj.rows[i].cells[0];//第i行第一列的td
+				var firstChild=checkTd.firstChild;//第i行第一列的checkBox
+				while(firstChild.nodeType!=1){
+					firstChild=firstChild.nextSibling;
+				}
+				if(a.checked){//如果全选被选中了
+					firstChild.checked=true;//将第i行第一列的checkBox选中
+				}
+				else{
+					firstChild.checked=false;//将第i行第一列的checkBox取消选中
+				}
+			}
+		}
+	</script>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table border="" cellspacing="" cellpadding="">
+			<tr><td align="center">邮箱登陆--表单一</td></tr>
+			<tr><td width="1000px" align="center" bgcolor=orange>
+				<!--form表单也有onclick方法，这个方法在点击了表单中的任意一个控件之后调用-->
+				<form action="" method="post" onsubmit="return mailValidate(this)">
+					邮箱:<input type="text" name="mail"/><br>
+					密码:<input type="text" name="psd"/><br>
+					<input type="submit" value="提交"/>
+					<input type="button" onclick="reset()" value="重置" />
+				</form>
+			</td></tr>
+			<tr>
+				<td width="1000px" height="50px" align="center">
+					你的生日--表单二
+				</td>
+			</tr>
+			<tr>
+				<td align="center" bgcolor=orange>
+					<form action="" method="post" onsubmit="return birthValidate(this)">
+						生日:<select name="" id="year" onchange="">
+								<option value="" id="yearOption">年份</option>
+							</select>
+							<select name="" id="month">
+								<option value="-----" id="monthOption">月份</option>
+							</select>
+							<select name="" id="day">
+								<option value="-----" id="dayOption">日期</option>
+							</select><br>
+						<input type="submit" value="提交"/>
+						<input type="button" onclick="resetBirth()" value="重置" />
+					</form>
+				</td>
+			</tr>
+			<tr align="center">
+				<td>
+					单选钮验证--表单三
+				</td>
+			</tr>
+			<tr align="center" bgcolor=orange>
+				<td>
+					<form action="" method="post" onsubmit="return nameValidate(this)">
+						<input type="radio" name="name" id="" value=""/>刘美含
+						<input type="radio" name="name" id="" value=""/>程晨
+						<input type="radio" name="name" id="" value=""/>杨紫
+						<input type="radio" name="name" id="" value=""/>王志心
+						<input type="radio" name="name" id="" value=""/>张三<br>
+						<input type="submit" name="" id="" value="提交" />
+						<button>重置</button>
+					</form>
+				</td>
+			</tr>
+		</table>
+		<script type="text/javascript">
+			window.onload = function(){
+				var yearselect = document.getElementById("year");
+				for(var i = 0; i < 29; i++){
+					var item = document.createElement("option");
+					item.text = (1990+i).toString();
+					yearselect.appendChild(item);
+				}
+				var monthSelect = document.getElementById("month");
+				for(var i = 1; i<=12; i++){
+					var item = document.createElement("option");
+					item.text = i +　"月";
+					monthSelect.appendChild(item);
+				}
+				var daySelect = document.getElementById("day");
+				for (var i = 1; i<=30; i++) {
+					var item = document.createElement("option");
+					item.text = i.toString();
+					daySelect.appendChild(item);
+				}
+			}
+			
+			var mailValidate = function(thisForm){
+				with(thisForm){
+					if(validate(mail) == false){
+						alert("邮箱不能为空");
+						return false;
+					}else if(validate(psd) == false){
+						alert("密码不能为空");
+						return false;
+					}else{
+						return true;
+					}
+				}
+			}
+			var validate = function(content){
+				with(content){
+					if(value == null || value == ""){
+						return false;
+					}else{
+						return true;	
+					}
+				}
+			}
+			var reset = function(){
+				var mail = document.getElementById("mail");
+				mail.text = "";
+				var psd = document.getElementById("psd");
+				pad.text = "";
+			}
+			
+			var birthValidate = function(){
+				var year = document.getElementById("yearOption");
+				var month = document.getElementById("monthOption");
+				var day = document.getElementById("dayOption");
+				if(year.selected == true){
+					alert("请选择出生年");
+					return false;
+				}else if(month.selected == true){
+					alert("请选择出生月");
+					return false;
+				}else if(day.selected == true){
+					alert("请选择出生日");
+					return false;
+				}
+				return false;
+			}
+			var resetBirth = function(){
+				var year = document.getElementById("yearOption");
+				var month = document.getElementById("monthOption");
+				var day = document.getElementById("dayOption");
+				year.selected = true;
+				month.selected = true;
+				day.selected = true;
+			}
+			var nameValidate = function(){
+				var names = document.getElementsByName("name");
+				for(var i=0; i<names.length; i++){
+					var name = names[i];
+					if(name.checked == true){
+						return true;
+					}
+				}
+				alert("请选择一个人名");
+				return false;
+			}
+		</script>
+	</body>
+</html>

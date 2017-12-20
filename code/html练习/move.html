@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<form action="" method="post">
+			<table border="" cellspacing="" cellpadding="">
+				<tr width="300">
+					<td rowspan="3">
+						<select name="" multiple="multiple" size="6" id="left" class="box">
+							<option value="">广州</option>
+							<option value="">深圳</option>
+							<option value="">北京</option>
+							<option value="">上海</optqion>
+							<option value="">武汉</option>
+						</select>
+					</td>
+					<td>
+						<input type="button" name="" id="leftBtn" value="左移" onclick="leftMove()"/>
+					</td>
+					<td rowspan="3">
+						<select name="" multiple="multiple" size="6" id="right" class="box">
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="button" name="" id="rightBtn" value="右移" onclick="rightMove()"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="button" name="" id="rightBtn" value="全部移动" onclick="allMove()"/>
+					</td>
+				</tr>
+			</table>
+		<script type="text/javascript">
+			var leftMove;
+			var allMove;
+			var allMove;
+			window.onload = function(){
+				var leftSelect = document.getElementById("left");
+				var rightSelect = document.getElementById("right");
+				var selectItems = [];
+				rightMove = function(){
+					var opts = leftSelect.options;
+					for (var i=opts.length-1; i>=0; i--) {
+						var item = opts[i];
+						if (item.selected == true) {
+							//这里的添加实际上是移动了元素
+							rightSelect.add(item);
+						} 
+					}
+				};
+				leftMove = function(){
+					var opts = rightSelect.options;
+					for (var i=opts.length-1; i>=0; i--) {
+						var item = opts[i];
+						if (item.selected == true) {
+							leftSelect.add(item);
+						} 
+					}
+				};
+				allMove = function(){
+					rlen = rightSelect.options.length;
+					llen = leftSelect.options.length;
+					if(rlen > llen){
+						for(var i=rightSelect.options.length-1; i>=0; i--){
+							leftSelect.add(rightSelect.options[i])
+						}
+					}else{
+						for(var i=leftSelect.options.length-1; i>=0; i--){
+							rightSelect.add(leftSelect.options[i])
+						}
+					}
+				};
+			}
+		</script>
+	</body>
+</html>

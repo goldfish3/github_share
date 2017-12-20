@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#anim{
+				width: 100px;
+				height: 100px;
+				background-color: green;
+				position: absolute;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js">
+			
+		</script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#btn").click(function(){
+					$("anim").animate({right:"200px"});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button id="btn">请点击我</button>
+		<div id="anim">
+		</div>
+		<table border="1" cellspacing="5" cellpadding="5">
+			<tr>
+				<td colspan="3">Data</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+		</table>
+	</body>
+</html>

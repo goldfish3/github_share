@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+	<input type="button" value="关闭" onclick="window.opener.close();" />
+		<input type = "text" id = "childid" />
+		子窗口
+	</body>
+	<script type="text/javascript">
+			var parentValue = window.opener.document.getElementById("testid").value;
+			console.log(parentValue);
+			document.getElementById("childid").value= parentValue;
+	</script>
+</html>

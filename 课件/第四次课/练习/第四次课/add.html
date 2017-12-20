@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="parent" style="width: 350px;height: 500px;border: 1px solid;" >
+		 
+			<div id="child1">
+				aaaa
+			</div>
+			<div id="child2">
+				vbbb
+			</div>
+			<div id="child3">
+				ccccc
+			</div>
+		</div>
+		<input type="button"  value="add" onclick="addElement();"/>
+	</body>
+	<script type="text/javascript">
+		//html元素操作增加
+		function addElement(){
+			var _div = document.createElement("div");
+			_div.style.height="200px";
+			_div.style.width = "300px";
+			_div.style.border = "1px solid";
+			//追加到最后面
+			//w3c常规
+			//var _text = document.createTextNode("testtesttest");
+			//_div.appendChild(_text);
+			//简单
+			_div.innerHTML = "sssssssssssss";
+			document.getElementById("parent").appendChild(_div);
+		}
+		//查找节点上                        查看w3school
+		
+/*nodeName
+nodeName 属性含有某个节点的名称。
+
+元素节点的 nodeName 是标签名称 
+属性节点的 nodeName 是属性名称 
+文本节点的 nodeName 永远是 #text 
+文档节点的 nodeName 永远是 #document 
+
+nodeValue
+对于文本节点，nodeValue 属性包含文本。
+对于属性节点，nodeValue 属性包含属性值。
+nodeValue 属性对于文档节点和元素节点是不可用的
+
+nodeType
+nodeType 属性可返回节点的类型。
+元素 1 
+属性 2 
+文本 3 
+注释 8 
+文档 9 */
+
+
+		/*var p = document.getElementById("parent");//只有一个，如果重名只第一个
+		console.log(p.nodeName);
+		console.log(p.nodeType);
+		console.log(p.nodeValue); */
+		
+		/*var p_tag = document.getElementsByTagName("div");
+		console.log(p_tag[0].nodeName);
+		console.log(p_tag[0].nodeType);
+		console.log(p_tag[0].nodeValue);*/
+		
+		
+		//找子节点childNodes能找到空节点  只找下一级所有子元素
+		//children只找元素  对比来讲
+		var childs = document.getElementById("parent").childNodes;
+		
+		for (var i = 0; i < childs.length; i++) {
+			if(childs[i].nodeType==1){
+				console.log(childs[i].nodeName);
+				console.log(childs[i].nodeType);
+				console.log(childs[i].nodeValue);
+				console.log("--------------------");
+			}
+		} 
+		//找第一个儿子  空也是文本#text
+		//firstChild包含空节点
+		/*var firstChild = document.getElementById("parent").firstChild;
+		console.info(firstChild.nodeName);
+		console.info(firstChild.nodeValue);
+		console.info(firstChild.nodeType);*/
+		//firstElementChild不包含空节点
+		/*var firstChild = document.getElementById("parent").firstElementChild;
+		console.info(firstChild.nodeName);
+		console.info(firstChild.nodeValue);
+		console.info(firstChild.nodeType);*/
+		
+		//找最后一个儿子
+		/*var firstChild = document.getElementById("parent").lastElementChild;
+		console.info(firstChild.nodeName);
+		console.info(firstChild.nodeValue);
+		console.info(firstChild.nodeType);*/
+		
+		//找第二个以及后面
+		/*var childs = document.getElementById("parent").children;
+		var secondchild=childs[1];
+		console.info(secondchild.nodeName);
+		console.info(secondchild.nodeValue);
+		console.info(secondchild.nodeType);*/
+		
+		//找父亲  parentElement只包含元素，不包含文本空节点。
+		//parentNode -- w3c标准写法  包含空节点
+		/*var parent = document.getElementById("child1").parentNode;
+		console.info(parent.id);
+		console.info(parent.nodeName);
+		console.info(parent.nodeValue);
+		console.info(parent.nodeType);*/
+		
+		//找兄弟
+		//nextSibling包含空节点和文本节点
+		//nextElementSibling不包含空节点
+		//继续找下一个.nextElementSibling.nextElementSibling
+		/*var brother=document.getElementById("child1").nextElementSibling.nextElementSibling;
+		console.info(brother.id);
+		console.info(brother.nodeName);
+		console.info(brother.nodeValue);
+		console.info(brother.nodeType);*/
+		
+		//找哥哥
+		//previousSibling包含空节点和文本节点
+		//previousElementSibling不包含空节点
+		//继续找下一个.previousSibling.previousSibling
+	/*	var brotherg=document.getElementById("child3").previousElementSibling;
+		console.info(brotherg.id);
+		console.info(brotherg.nodeName);
+		console.info(brotherg.nodeValue);
+		console.info(brotherg.nodeType);*/
+		
+		//找孙子
+	/*	var sunzi = document.getElementById("parent").firstElementChild.firstChild;
+		console.info(sunzi.nodeName);
+		console.info(sunzi.nodeValue);
+		console.info(sunzi.nodeType);*/
+		
+		
+		//找爷爷
+/*		var gpa = document.getElementById("child1").parentElement.parentElement;
+		console.info(gpa.nodeName);
+		console.info(gpa.nodeValue);
+		console.info(gpa.nodeType);*/
+		
+	</script>
+</html>

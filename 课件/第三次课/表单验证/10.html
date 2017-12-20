@@ -1,0 +1,132 @@
+<html>
+<head>
+<!--
+<script type="text/javascript">
+document.writeln("Hello World");
+</script>
+-->
+<meta charset="utf-8" />
+<style type="text/css">
+body,table,th,td{font-size:22px;}
+#tabScore{border-collapse:collapse;}
+</style>
+<title>表单验证</title>
+
+</head>
+<body>
+
+	<form id = "myform" name="myform" action="" method="get" onsubmit="return checkForm(this)" onreset="resetForm(this)">
+			<table bgcolor="#FFCC66" width="400" align="center"
+				style="border:1px solid" bordercolor="#0033CC" cellpadding="1" cellspacing="1">
+				<caption align="center"><h3>邮箱登陆——表单一</h3></caption>
+				<tr>
+					<td align="right">邮箱：</td>
+					<td>
+						<input type="text" name="email" id="email" title="邮箱" />
+					</td>
+				</tr>
+				<tr>
+					<td align="right">密码：</td>
+					<td>
+						<input type="password" name="pwd" id="pwd" title="密码" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="submit" name="submit" id="submit" value="提交" />
+						<input type="reset" name="reset" id="reset" title="重置" />
+					</td>				
+				</tr>
+			</table>
+	</form>		
+
+
+	<form id = "myform1" name="myform1" action="" method="get" onsubmit="return checkForm1(this)">
+			<table bgcolor="#FFCC33" width="400" align="center"
+				style="border:1px solid" bordercolor="#0033CC" cellpadding="0" cellspacing="0">
+				<caption align="center"><h3>你的生日——表单二</h3></caption>
+				<tr>
+					<td align="right">生日</td>
+					<td>
+						<select name="year">
+							<option value="">-</option>
+							<option value="1990">1990</option>
+							<option value="1991">1991</option>
+							<option value="1992">1992</option>
+							<option value="1993">1993</option>
+							<option value="1994">1994</option>
+							<option value="1995">1995</option>
+						</select>
+						<select name="month">
+							<option value="">-</option>
+							<option value="01">01</option>
+							<option value="02">02</option>
+							<option value="03">03</option>
+							<option value="04">04</option>
+							<option value="05">05</option>
+							<option value="06">06</option>
+						    <option value="07">07</option>
+							<option value="08">08</option>
+							<option value="09">09</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+						</select>
+						<select name="day">
+							<option value="">-</option>
+							<option value="01">01</option>
+							<option value="02">02</option>
+							<option value="03">03</option>
+							<option value="04">04</option>
+							<option value="05">05</option>
+							<option value="06">06</option>
+						    <option value="07">07</option>
+							<option value="08">08</option>
+							<option value="09">09</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="...">...</option>
+						</select>
+					</td>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="submit" name="submit" id="submit" value="提交" />
+						<input type="reset" name="reset" id="reset" title="重置" />
+					</td>				
+				</tr>
+			</table>
+	</form>
+
+
+	<form id = "myform2" name="myform2" action="" method="get" onsubmit="return checkForm2(this)">
+			<table bgcolor="#FFCC33" width="500" align="center"
+				style="border:1px solid" bordercolor="#0033CC" cellpadding="0" cellspacing="0">
+				<caption align="center"><h3>单选钮验证——表单三</h3></caption>
+				<tr>
+					<td>
+						<input type="radio" name="vote" value="刘美含" />刘美含		
+					</td>
+					<td>
+						<input type="radio" name="vote" value="程晨" />程晨		
+					</td>
+					<td>
+						<input type="radio" name="vote" value="杨紫" />杨紫		
+					</td>
+					<td>
+						<input type="radio" name="vote" value="王志心" />王志心		
+					</td>
+					<td>
+						<input type="radio" name="vote" value="张三" />张三	
+					</td>
+				<tr>
+					<td align="center">
+						<input type="submit" name="submit" id="submit" value="提交" />
+						<input type="reset" name="reset" id="reset" title="重置" />
+					</td>				
+				</tr>
+			</table>
+	</form>
+</body>
+<script type="text/javascript" src="test10.js"></script>
+</html>

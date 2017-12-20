@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<table>
+			<tr>
+				<td rowspan="4">
+					<select id="select1" multiple="multiple" size="9" style="width: 100px; text-align: center;">
+						<option value="">广州</option>
+						<option value="">深圳</option>
+						<option value="">北京</option>
+						<option value="">上海</option>
+						<option value="">长沙</option>
+						<option value="">成都</option>
+					</select>
+				</td>
+				<td><input type="button" id="addright" value="添加->>" onclick="addr()"></td>
+				<td rowspan="4">
+					<select id="select2" multiple="multiple" size="9" style="width: 100px; text-align: center;">
+
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="button" id="addrightall" value="添加全部" onclick="allr()"></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="addleft" value="<<-添加" onclick="addl()"></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="addleftall" value="添加全部" onclick="alll()"></td>
+			</tr>
+		</table>
+
+		<script type="text/javascript">
+			function addr() {
+				var slt = document.getElementById("select1");
+				var slt2 = document.getElementById("select2");
+				var opts = slt.options;
+				for(var i = 0; i < opts.length; i++) {
+					if(slt.options[i].selected) {
+						var opttext = slt.options[i].text;
+						slt2.add(new Option(opttext));
+						slt.options.remove(i);
+						i--;
+					}
+				}
+
+			}
+
+			function addl() {
+				var slt = document.getElementById("select2");
+				var slt2 = document.getElementById("select1");
+				var opts = slt.options;
+				for(var i = 0; i < opts.length; i++) {
+					if(slt.options[i].selected) {
+						var opttext = slt.options[i].text;
+						slt2.add(new Option(opttext));
+						slt.options.remove(i);
+						i--;
+					}
+				}
+			}
+
+			function allr() {
+				var slt = document.getElementById("select1");
+				var slt2 = document.getElementById("select2");
+				var opts = slt.options;
+				var num = 0;
+				for(var i = 0; i < opts.length; i++) {
+					var opttext = slt.options[i].text;
+					slt2.add(new Option(opttext));
+				}
+				slt.options.length = 0;
+			}
+
+			function alll() {
+				var slt = document.getElementById("select2");
+				var slt2 = document.getElementById("select1");
+				var opts = slt.options;
+				var num = 0;
+				for(var i = 0; i < opts.length; i++) {
+					var opttext = slt.options[i].text;
+					slt2.add(new Option(opttext));
+				}
+				slt.options.length = 0;
+			}
+		</script>
+	</body>
+
+</html>

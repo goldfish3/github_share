@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/d3.js">
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var dataSet = [
+				{apples: 5, oranges: 10, grapes: 22},
+				{apples: 4, oranges: 12, grapes: 28},
+				{apples: 2, oranges: 19, grapes: 32},
+				{apples: 7, oranges: 23, grapes: 35},
+				{apples: 23,oranges: 17, grapes: 43}
+			];
+			var dataSet = [
+							[{x: 0, y: 5},
+							 {x: 1, y: 4},
+							 {x: 2, y: 2},
+							 {x: 3, y: 7},
+							 {x: 4, y: 23}],
+							[{x: 0, y: 10},
+							 {x: 1, y: 12},
+							 {x: 2, y: 19},
+							 {x: 3, y: 23},
+							 {x: 4, y: 17}],
+							[{x: 0, y: 22},
+							 {x: 1, y: 28},
+							 {x: 2, y: 32},
+							 {x: 3, y: 35},
+							 {x: 4, y: 43}]
+						  ]; 
+			//初始化堆叠布局
+			var stack = d3.layout.stack();
+			stack(dataSet);
+			var rects = groups.selectAll("rect")
+							  .data(function(d){
+							  		return d;
+							  })
+							  .enter()
+							  .append("rect")
+							  .attr("x", function(d,i){
+							  	return xScale(i);
+							  })
+							  .attr("y", function(d, i){
+							  	return 
+							  })
+			
+		</script>
+	</body>
+</html>

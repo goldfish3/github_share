@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>表单</title>
+		<script type="text/javascript" src="js/calendar.js" ></script>
+		<style type="text/css">
+			.fontstyle{
+				font-size: 10pt;
+			}
+		</style>
+	</head>
+
+	<body>
+		<form method="post" action="u=399577942,211148275&fm=26&gp=0.jpg" onsubmit="return checkForm(this)">
+			<table border="1px solid">
+				<tbody>
+					<tr>
+						<th colspan="2" style="font-size: 30pt;">学生信息管理</th>
+					</tr>
+					<tr>
+						<td>学生编号：
+							<input type="text" id="SID" />
+							<font color="red">*</font>
+							<font class="fontstyle">请输入6到18位的学生编号</font>
+						</td>
+						<td>邮政编号：
+							<input type="text" id="SPostal_Code" />
+							<font color="red">*</font>
+							<font class="fontstyle">输入邮政编号</font>
+						</td>
+					</tr>
+					<tr>
+						<td>学生姓名：
+							<input type="text" id="Sname" />
+							<font color="red">*</font>
+							<font class="fontstyle">请输入2到4位中文名或者3到15位英文名字</font>
+						</td>
+						<td>联系人及联系方式1：
+							<input type="text" id="connetion1name" />
+							<input type="text" id="connetion1phone" />
+							<font class="fontstyle">选填</font>
+						</td>
+					</tr>
+					<tr>
+						<td>出生日期
+							<input type="text" id="SBirth" readonly onclick="SetDate(this,'yyyyMMdd')"/>
+							<font color="red">*</font>
+							<font class="fontstyle">请选择日期</font>
+						</td>
+						<td>联系人及联系方式2：
+							<input type="text" id="connetion2name" />
+							<input type="text" id="connetion2phone" />
+							<font class="fontstyle">选填</font>
+						</td>
+					</tr>
+					<tr>
+						<td>年龄：
+							<input type="text" id="Sage" readonly="readonly" onclick="addSage()"/>
+							<font color="red">*</font>
+							<font class="fontstyle">填写年龄之前请先填写日期</font>
+						</td>
+						<td>联系人及联系方式3：
+							<input type="text" id="connetion3name" />
+							<input type="text" id="connetion3phone" />
+							<font class="fontstyle">选填</font>
+						</td>
+					</tr>
+					<tr>
+						<td>性别：
+							<input type="radio" name="sex" />男&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="sex" />女&nbsp;&nbsp;
+							<font color="red">*</font>
+						</td>
+						<td>家庭地址：
+							<input type="text" id="Saddress" />
+						</td>
+					</tr>
+					<tr>
+						<td>民族：
+							<select id="SNation">
+								<option value="">请选择</option>
+								<option value="1">汉族</option>
+								<option value="2">回族</option>
+								<option value="3">苗族</option>
+							</select>
+							<font color="red">*</font>
+						</td>
+						<td rowspan="4">hello,everyone</td>
+					</tr>
+					<tr>
+						<td>婚否：
+							<input type="radio" name="marray" />已婚
+							<input type="radio" name="marray" />未婚
+							<input type="radio" name="marray" />离异&nbsp;&nbsp;
+							<font color="red">*</font>
+						</td>
+					</tr>
+					<tr>
+						<td>固定电话：
+							<input type="text" id="Sphone" />
+							<font color="red">*</font>
+							<font class="fontstyle">输入7位电话</font>
+						</td>
+					</tr>
+					<tr>
+						<td>手机号码：
+							<input type="text" id="Stelphone" />
+							<font color="red">*</font>
+							<font class="fontstyle">输入11位手机号码</font>
+						</td>
+					</tr>
+					<tr>
+						<td>邮箱地址：
+							<input type="text" id="Se_mail" />
+							<font color="red">*</font>
+							<font class="fontstyle">输入任意一种邮箱</font>
+						</td>
+						<td>
+							<input type="submit" />
+							<input type="reset" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</body>
+	<script type="text/javascript">
+		
+	
+	</script>
+</html>

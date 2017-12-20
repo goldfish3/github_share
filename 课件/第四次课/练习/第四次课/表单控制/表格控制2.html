@@ -1,0 +1,45 @@
+<html>
+<head><meta charset="utf-8" />
+<style>
+body{font-size:12px;background-color:#8cdef7;color:red;}
+</style>
+</head>
+<body>
+<table id="table_a" cellpadding="2" cellspacing="1" border="1" width="300px">
+<tr><td><input type="checkbox" value="1" onclick="mag()"></td><td>数据1</td></tr>
+<tr><td><input type="checkbox" value="2" onclick="mag()"></td><td>数据2</td></tr>
+<tr><td><input type="checkbox" value="3" onclick="mag()"></td><td>数据3</td></tr>
+<tr><td><input type="checkbox" value="4" onclick="mag()"></td><td>数据4</td></tr>
+<tr><td><input type="checkbox" value="5" onclick="mag()"></td><td>数据5</td></tr>
+</table>
+<br>
+<table id="table_b"  cellpadding="2" cellspacing="1" border="1" width="300px">
+<tr>
+<td>选择CheckBox复制</td>
+</tr>
+</table>
+</body>
+</html>
+<script>
+function mag()
+{
+var curObj=event.srcElement;     /*事件源: checkbox*/
+var curCell=curObj.parentNode;   /*checkbox 的 父节点 是td*/
+var curRow=curCell.parentNode;   /*td 的 父节点 是tr*/
+	if(curObj.checked)
+		{
+			var newRow=table_b.insertRow();
+			var newCell=newRow.insertCell();
+			newCell.innerHTML=curRow.cells[1].innerText;
+			newCell.id=curObj.value;
+		}
+	else
+		{	var theRows=table_b.rows;
+			for(var i=0;i<theRows.length;i++)
+				{	
+					if(theRows[i].cells[0].id==curObj.value)
+					table_b.deleteRow(i);
+				}
+		}
+}
+</script>

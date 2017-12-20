@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/d3.js">
+		</script>
+	</head>
+	<body>
+		<table border="" cellspacing="" cellpadding="" class="table">
+			<thead>
+				<tr>
+					<th>Time</th>
+					<th>Type</th>
+					<th>Amount</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>10:22</td>
+					<td>Purchase</td>
+					<td>10.00</td>
+				</tr>
+				<tr>
+					<td>12:12</td>
+					<td>Purchase</td>
+					<td>12.05</td>
+				</tr>
+				<tr>
+					<td>14:11</td>
+					<td>Expense</td>
+					<td>9.7</td>
+				</tr>
+			</tbody>
+		</table>
+		<script type="text/javascript">
+		//这里得到的是一个二维数组，数组的最外面一层只有一个元素-一个数组
+			var rows = d3.selectAll("tr");
+			var headerElement = rows[0][0];	//得到第一个tr标签
+			d3.select(headerElement).attr("calss", "table-header");
+		</script>
+	</body>
+</html>
