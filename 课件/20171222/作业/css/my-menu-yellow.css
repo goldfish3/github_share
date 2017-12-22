@@ -1,0 +1,42 @@
+.my-menu ul,.my-menu {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 200px;
+	text-align: center;
+	
+}
+.my-menu > li > div {
+	margin-top: 1px;
+	background-color: rgb(213,106,0);
+	height: 36px;
+	font-size: 18px;
+	color: #FFFFFF;
+	line-height: 34px;
+	font-weight: bold;
+	letter-spacing: 5px;
+	border-radius: 5px;
+	text-shadow: 0 0 2px rgb(138,69,0);
+}
+.my-menu > li > div:hover {
+	background-color: rgb(255,151,47);
+	cursor: pointer;
+}
+
+.my-menu > li> ul > li > a {
+	display: block;
+	width: 90%;
+	margin: 1px auto;
+	color:rgb(213,106,0);
+	text-decoration: none;
+	font-style: 16px;
+	line-height: 28px;
+
+}
+.my-menu > li> ul > li:nth-child(2n) > a {
+	background-color: rgb(255,226,198);
+}
+
+.my-menu > li> ul > li > a:hover {
+	color: rgb(138,69,0);
+}
