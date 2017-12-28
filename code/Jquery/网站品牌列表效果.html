@@ -52,9 +52,11 @@
 				/*border: 1px solid black;*/
 			}
 		</style>
+		<script type="text/javascript" src="js/jquery-1.4.4.js">
+		</script>
 	</head>
 	<body>
-		<div class="listBox">
+		<!--<div class="listBox">
 			<ul class="">
 			<li><a href="#">佳能</a><i>(30440)</i></li>
 			<li><a href="#">索尼</a><i>(27220)</i></li>
@@ -74,7 +76,7 @@
 			<div id="allBrand">
 				<a href=""><span>显示全部品牌</span></a>
 			</div>
-		</div>
+		</div>-->
 		
 		<div class="listBox">
 			<ul class="">
@@ -92,8 +94,23 @@
 			<li class="hide"><a href="#">爱国者</a><i>(1466)</i></li>
 			<li class="hide"><a href="#">理光</a><i>(3091)</i></li>
 		</ul>
-			<div id="allBrand">
+			<div class="allBrand">
 				<a href=""><span>显示全部品牌</span></a>
 			</div>
+		</div>
+		<script type="text/javascript">
+			//jquery每一步返回的都是一个数组
+//			这里获取li下索引值大于5的元素,并且不能是最后一个
+//			var $category = $("ul li:gt(5):not(:last)");
+//			$category.hide();
+			
+//			var $toggleBtn = $("div.allBrand > a");
+//			$toogleBtn.click(function(){
+//				$category.show();
+//				
+//				//这句话保证超链接不跳转
+//				return false;
+//			});
+		</script>
 	</body>
 </html>
