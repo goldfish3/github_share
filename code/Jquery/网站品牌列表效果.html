@@ -6,37 +6,34 @@
 		<style type="text/css">
 			.listBox{
 				width: 700px;
-				height: 200px;
+				/*height: 200px;*/
 				background: lightgray;
-				margin: 40px auto;
-				position: fixed;
-			}
-			.listBox ul{
 				list-style: none;
 			}
 			.listBox ul li{
 				float: left;
-				display: block;
-				margin: 0;
-				width: 200px;
+				display: inline-block;
+				margin: 10px 30px;
+			}
+			.listBox ul{
+				width: 700px;
 				height: 20px;
 				list-style-type: none;
 				text-align: center;
 			}
-			#allBrand{
+			.allBrand{
 				clear: both;
 				width: 200px;
 				height: 20px;
 				text-align: center;
-				
-				/*这里由于顶部的ul没有设置高度,所以顶部距离不会有效果*/
-				/*margin: 100px auto;*/
+				margin: 100px auto;
 				
 				/*只能通过设置内边距来达到我们要的效果*/
 				padding-top: 20px;
-				background-color: red;
-				position: absolute;
+				/*background-color: red;*/
+				/*position: absolute;*/
 				top: 100px;
+				
 			}
 			a{
 				text-decoration: none;
@@ -54,33 +51,15 @@
 				padding-left: 10px;
 				/*border: 1px solid black;*/
 			}
+			.promoted{
+				font: 15px;
+				font-weight: bold;
+			}
 		</style>
 		<script type="text/javascript" src="js/jquery-1.4.4.js">
 		</script>
 	</head>
 	<body>
-		<!--<div class="listBox">
-			<ul class="">
-			<li><a href="#">佳能</a><i>(30440)</i></li>
-			<li><a href="#">索尼</a><i>(27220)</i></li>
-			<li><a href="#">三星</a><i>(20808)</i></li>
-			<li><a href="#">尼康</a><i>(17821)</i></li>
-			<li><a href="#">松下</a><i>(12289)</i></li>
-			<li><a href="#">卡西欧</a><i>(8242)</i></li>
-			<li><a href="#">富士</a><i>(14894)</i></li>
-			<li><a href="#">柯达</a><i>(9520)</i></li>
-			<li><a href="#">宾得</a><i>(2195)</i></li>
-			<li><a href="#">奥林巴斯</a><i>(4114)</i></li>
-			<li><a href="#">明基</a><i>(12205)</i></li>
-			<li><a href="#">爱国者</a><i>(1466)</i></li>
-			<li><a href="#">理光</a><i>(3091)</i></li>
-			<li><a href="#">其他相机品牌</a><i>(7275)</i></li>
-		</ul>
-			<div id="allBrand">
-				<a href=""><span>显示全部品牌</span></a>
-			</div>
-		</div>-->
-		
 		<div class="listBox">
 			<ul class="">
 				<li><a href="#">佳能</a><i>(30440)</i></li>
@@ -89,7 +68,6 @@
 				<li><a href="#">尼康</a><i>(17821)</i></li>
 				<li><a href="#">松下</a><i>(12289)</i></li>
 				<li><a href="#">卡西欧</a><i>(8242)</i></li>
-				<li class="hide"><a href="#">富士</a><i>(14894)</i></li>
 				<li class="hide"><a href="#">富士</a><i>(14894)</i></li>
 				<li class="hide"><a href="#">柯达</a><i>(9520)</i></li>
 				<li class="hide"><a href="#">宾得</a><i>(2195)</i></li>
@@ -103,18 +81,33 @@
 			</div>
 		</div>
 		<script type="text/javascript">
-			//jquery每一步返回的都是一个数组
+//			jquery每一步返回的都是一个数组
 //			这里获取li下索引值大于5的元素,并且不能是最后一个
-//			var $category = $("ul li:gt(5):not(:last)");
-//			$category.hide();
+			var $category = $("ul li:gt(5):not(:last)");
+			$category.hide();
 			
-//			var $toggleBtn = $("div.allBrand > a");
-//			$toogleBtn.click(function(){
-//				$category.show();
-//				
-//				//这句话保证超链接不跳转
-//				return false;
-//			});
+			$("ul li").filter(":contains('佳能'),:contains('尼康'),:contains('奥林巴斯')")
+					  .addClass("promoted");
+
+			var $toggleBtn = $("div.allBrand > a");
+			$toggleBtn.click(function(){
+				
+				//is(":hidden") 和 is(":visible")是jquery特有的可视过滤器，并不是css属性
+				if($category.is(":hidden")){
+					$category.show();
+					$(".allBrand a span")
+						.css("background","url(img/up.gif) no-repeat 0 0")
+						.text("精简显示品牌");	
+				}else{
+					$category.hide();
+					$(".allBrand a span")
+						.css("background","url(img/down.gif) no-repeat 0 0")
+						.text("显示全部品牌");
+				}
+				
+//				这句话保证超链接不跳转
+				return false;
+			});
 		</script>
 	</body>
 </html>
