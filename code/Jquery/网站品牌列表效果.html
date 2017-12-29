@@ -9,6 +9,7 @@
 				height: 200px;
 				background: lightgray;
 				margin: 40px auto;
+				position: fixed;
 			}
 			.listBox ul{
 				list-style: none;
@@ -29,24 +30,26 @@
 				text-align: center;
 				
 				/*这里由于顶部的ul没有设置高度,所以顶部距离不会有效果*/
-				margin: 100px auto;
+				/*margin: 100px auto;*/
 				
 				/*只能通过设置内边距来达到我们要的效果*/
 				padding-top: 20px;
-				/*background-color: red;*/
+				background-color: red;
+				position: absolute;
+				top: 100px;
 			}
 			a{
 				text-decoration: none;
 				color: #04D;
 			}
-			#allBrand a{
+			.allBrand a{
 				border: 1px solid black;
 				width: 200px;
 				height: 30px;
 				display: block;
 				line-height: 30px;
 			}
-			#allBrand a span{
+			.allBrand a span{
 				background: url(img/down.gif) no-repeat 0 0;
 				padding-left: 10px;
 				/*border: 1px solid black;*/
@@ -86,7 +89,8 @@
 				<li><a href="#">尼康</a><i>(17821)</i></li>
 				<li><a href="#">松下</a><i>(12289)</i></li>
 				<li><a href="#">卡西欧</a><i>(8242)</i></li>
-				<li class="hide" style="display: none;"><a href="#">富士</a><i>(14894)</i></li>
+				<li class="hide"><a href="#">富士</a><i>(14894)</i></li>
+				<li class="hide"><a href="#">富士</a><i>(14894)</i></li>
 				<li class="hide"><a href="#">柯达</a><i>(9520)</i></li>
 				<li class="hide"><a href="#">宾得</a><i>(2195)</i></li>
 				<li class="hide"><a href="#">奥林巴斯</a><i>(4114)</i></li>

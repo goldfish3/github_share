@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.4.4.js">
+			
+		</script>
+		<style type="text/css">
+			a{
+				display: inline-block;
+				position: fixed;
+			}
+			a:hover{
+				background-color: pink;
+				position: fixed;
+			}
+			#newsa{
+				top: 10px;
+				left: 10px;
+			}
+			#funa{
+				top: 10px;
+				left: 50px;
+			}
+			div{
+				width: 100px;
+				height: 200px;
+				position: fixed;
+				top: 30px;
+				background-color: lightgray;
+			}
+			#new{
+				left: 10px;
+			}
+			#fun{
+				left: 50px;
+				background: yellow;
+			}
+			#new div{
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="" id="newsa">新闻</a>
+		<a href="" id="funa">娱乐</a>
+		<div id="news">
+			<div id="">百度学术</div>
+			<div id="">百度学术</div>
+			<div id="">百度学术</div>
+			<div id="">百度学术</div>
+			<div id="">百度学术</div>
+			<div id="">百度学术</div>
+			<div id="">百度学术</div>
+		</div>
+		<div id="fun">
+		</div>
+		<script type="text/javascript">
+			$("document").ready(function(){
+				$("#newsa").click(function(){
+					var posX = $("#newsa").position().top;
+					var posY = $("#newsa").position().left;
+					$("news").css("top",posX.toString()+"px");
+					$("news").css("left",posY.toString()+"px");
+					$("news").show();
+				});
+			});
+		</script>
+	</body>
+</html>
