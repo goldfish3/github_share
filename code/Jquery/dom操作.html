@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<script type="text/javascript" src="js/jquery-1.4.4.js">
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js">
 		</script>
 		
 	</head>
@@ -13,23 +13,53 @@
 			<li title="apple">苹果</li>
 			<li title="orange">橘子</li>
 			<li title="pineapple">菠萝</li>
+			<li title="pea">梨子</li>
 		</ul>
 		<script type="text/javascript">
-			var orange = $("ul li:eq(1)");
+			$(function(){
+				var $orange = $("ul li:eq(1)");
 			
-			//获取节点里的文字
-			alert(orange.text());
-			
-			//获取属性的值
-			alert(orange.attr("title"));
-			
-//			创建和添加节点
-			var li = $("<li title='banana'>香蕉</li>");
-			$("ul").append(li);
-			
-			//插入节点（如果对现有的节点进行插入，那就是移动节点
-			var apple = $("ul li:eq[0]");
-			apple.insertAfter(orange);
+				//获取节点里的文字
+				console.log($orange.text());
+				
+				//获取属性的值
+				console.log($orange.attr("title"));
+				
+//				创建和添加节点
+				var $li = $("<li title='banana'>香蕉</li>");
+				$("ul").append($li);
+				
+				//插入节点（如果对现有的节点进行插入，那就是移动节点
+				//!!!:这里是用的小括号
+				var $apple = $("ul li:eq(0)");
+				var $pine = $("ul li:eq(2)")
+				$apple.insertBefore($pine);
+				
+				//删除节点 梨子,删除节点的引用仍然保存在pea中
+				//remove方法会移除节点绑定的时间，但是如果使用detach方法就不会
+				var $pea = $("ul li").filter(":contains('梨子')").remove();
+				$("ul").append($pea);
+				
+				//在remove方法中也可以进行筛选
+				$("ul li").remove("li[title=pea]");
+				
+				//使用empty可以清空节点的里内容
+				$("ul li:eq(1)").empty();
+				
+				//如果clone中不添加true，复制的节点并不会具有任何事件
+				//如果要新添加的节点也绑定事件，需要在clone中添加参数true
+				$("ul li").click(function(){
+					$(this).clone(true).appendTo($("ul"));
+				});
+				
+				//对节点进行替换
+				$("ul li[title=apple]").replaceWith("<strong>苹果</strong>");
+//				或者
+                $("<strong>香蕉</strong>").replaceAll("li[title=orange]");
+                
+                //将节点包裹起来
+                $("li[title=pineapple]").wrap("<b></b>");
+			});
 		</script>
 	</body>
 </html>
