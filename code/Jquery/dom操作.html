@@ -57,8 +57,11 @@
 //				或者
                 $("<strong>香蕉</strong>").replaceAll("li[title=orange]");
                 
-                //将节点包裹起来
+                //将节点包裹起来(warp会将每一个匹配的节点都包裹起来)
                 $("li[title=pineapple]").wrap("<b></b>");
+                
+                //如果要将所有匹配的节点用一个标签包裹起来，就要使用warpall
+                $("li]").wrapAll()
 			});
 		</script>
 	</body>
