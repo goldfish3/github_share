@@ -3,7 +3,33 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<script type="text/javascript" src="js/jquery-1.4.4.js">
+		</script>
+		
 	</head>
 	<body>
+		<h3>你最喜欢的水果是?</h3>
+		<ul>
+			<li title="apple">苹果</li>
+			<li title="orange">橘子</li>
+			<li title="pineapple">菠萝</li>
+		</ul>
+		<script type="text/javascript">
+			var orange = $("ul li:eq(1)");
+			
+			//获取节点里的文字
+			alert(orange.text());
+			
+			//获取属性的值
+			alert(orange.attr("title"));
+			
+//			创建和添加节点
+			var li = $("<li title='banana'>香蕉</li>");
+			$("ul").append(li);
+			
+			//插入节点（如果对现有的节点进行插入，那就是移动节点
+			var apple = $("ul li:eq[0]");
+			apple.insertAfter(orange);
+		</script>
 	</body>
 </html>
