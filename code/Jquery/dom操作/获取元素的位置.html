@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js">
+		</script>
+	</head>
+	<body>
+		<div id="">
+			水果市场
+		</div>
+		<ul>
+			<li>苹果</li>
+			<li>梨子</li>
+			<li>香蕉</li>
+		</ul>
+		<script type="text/javascript">
+			//获取元素的宽和高
+			var $market = $("div");
+			alert($market.width());
+			alert($market.height());
+			
+			//获取元素的坐标
+			alert($market.offset().left);
+			alert($market.offset().top);
+			
+			//获取元素的滚动视图中的坐标
+			alert($market.scrollTop());
+			alert($market.scrollLeft());
+		</script>
+	</body>
+</html>

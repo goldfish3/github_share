@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#email{
+				width: 220px;
+				background: lightgray;
+				margin: 50px auto;
+				text-align: center;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js">
+		</script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//一：显示text和html
+				$('button').click(function(){
+					alert($("#para").text());
+					alert($("#para").html());
+					$("input").val("goldfish");
+				});
+				
+				//二：邮箱文本切换
+				$("input[name=email]").focus(function(){
+					//注意：在jquery中使用this要用$(this)
+					if($(this).val() == $(this).defaultValue){
+						$(this).val("");
+					}
+				}).blur(function(){
+					if($(this).val() == ""){
+						$(this).val($(this).defaultValue);
+					}
+				});
+				
+				$("input[name=password]").focus(function(){
+					if($(this).val() == "请输入密码"){
+						$(this).val("");
+					}
+				}).blur(function(){
+					if($(this).val() == ""){
+						$(this).val("请输入密码");
+					}
+				});
+				
+				//三：val方法的选中功能
+				//这里会自动根据输入的val值和option中的内容进行匹配
+				$("select[name=single]").val("选择二号");
+				$("select[name=mutiple]").val(["选择二号","选择三号"]);
+				$(":checkbox").val(["check2","check3"]);	//这里无论是单选还是多选都必须使用数组
+				$(":radio").val(["rad2"]);
+			});
+		</script>
+	</head>
+	<body>
+		<button>点我</button>
+		<p id="para">
+			这是<b>段落</b>中的文本
+		</p>
+		<input type="text" name="" id="" value="请输入内容" />
+		
+		
+		
+		<div id="email">
+			邮箱：<input type="text" name="email" value="请输入邮箱名"/>
+			密码：<input type="text" name="password" value="请输入密码"/>
+		</div>
+		
+		
+		
+		<select name="single">
+			<option>选择一号</option>
+			<option>选择二号</option>
+			<option>选择三号</option>
+			<option>选择四号</option>
+			<option>选择五号</option>
+		</select>
+		<select name="mutiple" multiple="multiple">
+			<option>选择一号</option>
+			<option>选择二号</option>
+			<option>选择三号</option>
+			<option>选择四号</option>
+			<option>选择五号</option>
+		</select>
+		<br />
+		多选1<input type="checkbox" name="check" value="check1" />
+		多选2<input type="checkbox" name="check" value="check2" />
+		多选3<input type="checkbox" name="check" value="check3" />
+		<br />
+		单选1<input type="radio" name="rad" value="rad1" />
+		单选2<input type="radio" name="rad" value="rad2" />
+		单选3<input type="radio" name="rad" value="rad3" />
+	</body>
+</html>

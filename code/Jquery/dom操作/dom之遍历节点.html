@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.2.1.min.js">
+		</script>
+	</head>
+	<body>
+		<p><b>水果市场 </b></p>
+		<ul>
+			<li><b>苹果</b></li>
+			<li>香蕉</li>
+			<li>梨子</li>
+		</ul>
+		<div>
+			这是一个盒子模型
+		</div>
+		<script type="text/javascript">
+			//1:匹配所有子元素的集合
+			var $childs = $("body").children();
+			alert($childs.length);
+			
+			//获得的子元素 不是jquery对象
+			var liChilds = $("ul").children();
+			for(var i=0; i<liChilds.length; i++){
+				console.log(liChilds[i].innerHTML);
+			}
+			
+			//2:获取当前元素的下一个元素节点
+			var $li2 = $("ul li:eq(1)");
+//			alert($li2.next().text());
+			
+			//3:获取当前元素的上一个元素节点
+//			alert($li2.prev().text());
+			
+			//4:获得同辈的所有元素
+			var $brothers = $li2.siblings();
+			for (var i=0; i<$brothers.length; i++) {
+				alert($brothers[i].innerText);				
+			}
+		</script>
+	</body>
+</html>

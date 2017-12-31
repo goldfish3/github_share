@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.2.1.min.js">
+			
+		</script>
+	</head>
+	<body>
+		<p title="market">
+			<b>欢迎来到水果市场</b>
+			<ul>
+				<li>苹果</li>
+				<li>梨子</li>
+				<li>香蕉</li>
+			</ul>
+		</p>
+		<script type="text/javascript">
+			//获取目标节点的标题
+			console.log($("p").attr("title"));
+			
+			//修改目标节点的标题
+			$("p").attr("title","fruitMarket");
+			alert($("p").attr("title"));
+			
+			//一次性设置多个属性
+			$("p").attr({"title":"market","name":"market"});
+		</script>
+	</body>
+</html>

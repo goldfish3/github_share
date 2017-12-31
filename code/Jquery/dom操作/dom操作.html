@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<script type="text/javascript" src="js/jquery-3.2.1.min.js">
+		<script type="text/javascript" src="../js/jquery-3.2.1.min.js">
 		</script>
 		
 	</head>
@@ -58,10 +58,13 @@
                 $("<strong>香蕉</strong>").replaceAll("li[title=orange]");
                 
                 //将节点包裹起来(warp会将每一个匹配的节点都包裹起来)
+                //和warp相对应的还有一个warpinner，它的作用刚好和warp相反，用前面的包裹后面的
                 $("li[title=pineapple]").wrap("<b></b>");
                 
                 //如果要将所有匹配的节点用一个标签包裹起来，就要使用warpall
-                $("li]").wrapAll()
+                $("li").wrapAll("<i></i>")
+                
+                
 			});
 		</script>
 	</body>

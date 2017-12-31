@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.classOne{
+				font-weight: bold;
+				color: red;
+			}
+			.another{
+				font-style: italic;
+				color: blue;
+			}
+		</style>
+		<script type="text/javascript" src="../js/jquery-3.2.1.min.js">
+		</script>
+	</head>
+	<body>
+		<button name="classChange">样式切换</button>
+		<button name="showChange">显示隐藏切换</button>
+		<button name="hasClass">是否包含样式classOne</button>
+		<ul>
+			<li>苹果</li>
+			<li>香蕉</li>
+			<li>梨子</li>
+		</ul>
+		<script type="text/javascript">
+			//一：添加样式
+			//可以使用添加属性的方法来给节点添加样式(但是无法追加多个)，但一般情况下我们使用addClass
+			//css规则：添加多个样式的话，样式合并，同属性，后面的样式覆盖前面的样式
+			$("li").attr("class","classOne").addClass("another");
+			
+			
+			//二：移除样式
+			$("li").removeClass("classOne");	//1：移除一个
+			$("li").removeClass();	//2：全部移除
+			$("li").removeClass("classOne").removeClass("another");	//3：移除多个
+			
+			
+			//三：样式切换
+			$("button[name=classChange]").click(function(){
+				$("li").toggleClass("another");
+			});
+			//显示隐藏切换(这里的toogle可以接收两个函数参数，第一个函数在显示的时候调用，第二个函数在隐藏的时候调用)
+			$("button[name=showChange]").click(function(){
+				$("li").toggle(function(){
+//					$("li").text("123");
+				},function(){
+//					$("li").text("456");
+				});
+			});
+			
+			
+			//四：判断是否包含某个样式
+			$("button[name=hasClass]").click(function(){
+				alert($("li").hasClass("another"));
+			});
+		</script>
+	</body>
+</html>
