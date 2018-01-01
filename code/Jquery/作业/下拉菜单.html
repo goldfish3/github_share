@@ -3,6 +3,19 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<style type="text/css">
+			.box{
+				border: 1px solid black;
+				position: absolute;
+				background: lightgray;
+				width: 80px;
+				text-align: center;
+			}
+			li{
+				list-style-type: none;
+				border: 1px solid gray;
+			}
+		</style>
 		<script type="text/javascript" src="../js/jquery-3.2.1.min.js"> 
 		</script>
 	</head>
@@ -10,15 +23,36 @@
 		<a href="#" name="news">新闻</a>
 		<a href="#" name="fun">娱乐</a>
 		<script type="text/javascript">
+			var createMenu = function(list,x,y){
+				var $content = $("<div></div>");
+				$content.addClass("box");
+				$content.css({"top":y,"left":x});
+				for (var i=0; i<list.length; i++) {
+					var $item = $("<li></li>");
+					$item.text(list[i]);
+					$content.append($item);
+				}
+				$("body").append($content);
+				$content.hide(true);	
+				return $content;
+			};
 			var $news = $("a[name=news]");
-			var x = $news.height();
-			var y = $news.offset().left;
+			var newsList = ["娱乐","财富","经济","体育"];
+			var newListX = $news.offset().left;
+			var newListY = $news.height() + $news.offset().top;
+			var $newsMenu = createMenu(newsList,newListX,newListY);
+			$news.click(function(){
+				$newsMenu.toggle(200);
+			});
 			
-			var $content = $("<div></div>");
-			for (var i=0; i<5; i++) {
-				var $item = $("<li></li>");
-					
-			}
+			var $fun = $("a[name=fun]");
+			var funList = ["小说","电影","电视剧"];
+			var funMenuX = $fun.offset().left;
+			var funMenuY = $fun.height() + $fun.offset().top;
+			var funMenu = createMenu(funList,funMenuX,funMenuY);
+			$fun.click(function(){
+				funMenu.toggle(200);
+			});
 		</script>
 	</body>
 </html>
