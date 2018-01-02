@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.2.1.min.js">
+		</script>
+		<style type="text/css">
+			body{
+				margin:0;
+				padding:40px;
+				background:#fff;
+				font:80% Arial, Helvetica, sans-serif;
+				color:#555;
+				line-height:180%;
+			}
+			p{
+				clear:both;
+				margin:0;
+				padding:.5em 0;
+			}
+			#tooltip{
+				position:absolute;
+				border:1px solid #333;
+				background:#f7f5d1;
+				padding:1px;
+				color:#333;
+				display:none;
+			}
+		</style>
+	</head>
+	<body>
+		<p><a href="#" class="tooltip" title="这是我的超链接提示1.">提示1.</a></p>
+		<p><a href="#" class="tooltip" title="这是我的超链接提示2.">提示2.</a></p>
+		<p><a href="#" title="这是自带提示1.">自带提示1.</a></p>
+		<p><a href="#" title="这是自带提示2.">自带提示2.</a></p>
+		<script type="text/javascript">
+			$(function(){
+				$(".tooltip").mouseover(function(e){
+					//注意，在函数中使用的this是一个javascript对象
+					//对于一个js对象来说，他有一个title函数，
+					this.myTitle = this.title;
+					this.title = "";
+					
+					var $alertDiv = $("<div id='myAlert'></div>");
+					$alertDiv.text(this.myTitle);
+					$alertDiv.css({
+						"position":"fixed",
+						"top":e.pageY + $(this).height(),
+						"left":e.pageX + $(this).width()
+					}).show("fast");
+					$("body").append($alertDiv);
+				}).mouseout(function(){
+//					alert(this.myTitle);
+					this.title = this.myTitle;
+					$("#myAlert").remove();
+				});
+			});
+		</script>
+	</body>
+</html>

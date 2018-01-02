@@ -6,8 +6,35 @@
 		<script type="text/javascript" src="../js/jquery-3.2.1.min.js">
 		</script>
 		<style type="text/css">
+			body{
+				margin:0;
+				padding:40px;
+				background:#fff;
+				font:80% Arial, Helvetica, sans-serif;
+				color:#555;
+				line-height:180%;
+			}
+			img{border:none;}
+			ul,li{
+				margin:0;
+				padding:0;
+			}
 			li{
-				list-style-type: none;
+				list-style:none;
+				float:left;
+				display:inline;
+				margin-right:10px;
+				border:1px solid #AAAAAA;
+			}
+
+			/* tooltip */
+			#tip{
+				position:absolute;
+				border:1px solid #ccc;
+				background:#333;
+				padding:2px;
+				display:none;
+				color:#fff;
 			}
 		</style>
 	</head>
@@ -45,15 +72,18 @@
 				tootip.append(img);
 				tootip.css({
 					"position":"fixed",
-					"top":e.pageY + 20,
+					"top":e.pageY + 10,
 					"left":e.pageX + 10
-				});
+				}).show("fast");
 				$("body").append(tootip);
 			}).mouseout(function(){
-				alert($("#tip").innerHTML);
-				("body").removeChild($("#tip"));
-			}).mousemove(function(){
-				
+                $("#tip").remove();
+			}).mousemove(function(e){
+				$("#tip").css({
+					top:e.pageY + 10,
+					left:e.pageX + 10
+				}).show("fast");
+
 			});
 		</script>
 	</body>

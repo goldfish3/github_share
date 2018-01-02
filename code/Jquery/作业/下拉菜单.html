@@ -41,18 +41,33 @@
 			var newListX = $news.offset().left;
 			var newListY = $news.height() + $news.offset().top;
 			var $newsMenu = createMenu(newsList,newListX,newListY);
-			$news.click(function(){
-				$newsMenu.toggle(200);
-			});
 			
 			var $fun = $("a[name=fun]");
 			var funList = ["小说","电影","电视剧"];
 			var funMenuX = $fun.offset().left;
 			var funMenuY = $fun.height() + $fun.offset().top;
-			var funMenu = createMenu(funList,funMenuX,funMenuY);
-			$fun.click(function(){
-				funMenu.toggle(200);
+			var $funMenu = createMenu(funList,funMenuX,funMenuY);
+			
+			//通过鼠标移动来出现和影藏
+			$news.mouseover(function(){
+				$newsMenu.show(true);
+			}).mouseout(function(){
+				$newsMenu.hide(true);
+			})
+			$fun.mouseover(function(){
+				$funMenu.show(true);
+			}).mouseout(function(){
+				$funMenu.hide(true);
 			});
+//			通过点击来出现和隐藏
+//			$news.click(function(){
+//				$funMenu.hide(true);
+//				$newsMenu.toggle(200);
+//			});
+//			$fun.click(function(){
+//				$newsMenu.hide(true);
+//				$funMenu.toggle(200);
+//			});
 		</script>
 	</body>
 </html>
