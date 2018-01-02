@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.2.1.min.js">
+		</script>
+		<style type="text/css">
+			li{
+				list-style-type: none;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<div></div>
+				<a href="../img/apple_1_bigger.jpg">
+					<img src="../img/apple_1.jpg"/>
+				</a>
+			</li>
+			<li>
+				<a href="../img/apple_2_bigger.jpg">
+					<img src="../img/apple_2.jpg"/>
+				</a>
+			</li>
+			<li>
+				<a href="../img/apple_3_bigger.jpg">
+					<img src="../img/apple_3.jpg"/>
+				</a>
+			</li>
+			<li>
+				<a href="../img/apple_4_bigger.jpg">
+					<img src="../img/apple_4.jpg"/>
+				</a>
+			</li>
+		</ul>
+		<script type="text/javascript">
+			$("a").mouseover(function(e){
+				var tootip = $("<div id='tip'></div>");
+				var img = $("<img></img>");
+				img.attr({
+					"src":this.href
+					});
+				tootip.append(img);
+				tootip.css({
+					"position":"fixed",
+					"top":e.pageY + 20,
+					"left":e.pageX + 10
+				});
+				$("body").append(tootip);
+			}).mouseout(function(){
+				alert($("#tip").innerHTML);
+				("body").removeChild($("#tip"));
+			}).mousemove(function(){
+				
+			});
+		</script>
+	</body>
+</html>
