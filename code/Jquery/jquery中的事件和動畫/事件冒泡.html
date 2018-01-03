@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+</head>
+<body>
+这是body
+    <p id="pbox">
+        这是p
+        <br>
+        <span id="sbox">
+                 这是span
+        </span>
+    </p>
+        <script>
+            //当我们点击span的时候，p中的方法和body中的方法都会依次调用
+            $("#sbox").click(function (e) {
+                alert("span");
+                e.stopPropagation();
+            });
+            $("#pbox").click(function (e) {
+                alert("p");
+
+                //下面这个函数会停止事件冒泡
+                e.stopPropagation();
+            });
+            $("body").click(function () {
+                alert("body");
+                e.stopPropagation();
+            });
+    </script>
+</body>
+</html>

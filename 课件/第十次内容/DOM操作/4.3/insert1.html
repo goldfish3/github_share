@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../../../js/jquery-1.4.4.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			function turnRight(){
+				$("#right").append($("#left>option:checked"));
+			}
+			function turnLeft(){
+				$("#left").append($("#right>option:checked"));
+			}
+			
+			function turnAllRight(){
+				$("#right").append($("#left>option"));
+			}
+				
+			function turnAllLeft(){
+				$("#left").append($("#right>option"));
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="outerDiv">
+			<select multiple="multiple" id="left">
+	
+				<option value="">java</option>
+				<option value="">.net</option>
+				<option value="">web前端</option>
+				<option value="">测试</option>
+				<option value="">运维</option>
+
+			</select>
+			<div style="display: inline-block;">
+				<input type="button" value=">>" onclick="turnRight()"/><br/>
+				<input type="button" value="<<" onclick="turnLeft()"/><br/>
+				<input type="button" value="全部>>" onclick="turnAllRight()"/><br/>
+				<input type="button" value="全部<<" onclick="turnAllLeft()"/><br/>
+			</div>
+				<select multiple="multiple" id="right"></select>
+			</div>
+	</body>
+</html>

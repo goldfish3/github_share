@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../../../js/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function replaceAll() {
+				var text = $('#text').clone();
+				text.replaceAll($('p'));
+				/*$('p').replaceWith(text);*/ 
+			}
+		</script>
+	</head>
+	<body>
+		<p>第一个p的内容</p>
+		<p>第二个p的内容</p>
+		<div>
+			<textarea id='text' onfocus="alert(111)"></textarea>
+		</div>
+		<input type="button" onclick = 'replaceAll()' value="替换全部内容" />
+	</body>
+</html>

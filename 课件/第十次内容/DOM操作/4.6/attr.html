@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../../../js/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<img  id = "img" src=''/>
+		<script>
+			/*如果当前元素没有设定某属性，
+			 浏览器会默认给这个元素加上默认值，
+			但是使用attr只能返回undefined,
+			如果想获取默认值，需要使用prop*/
+			console.log($('#img').attr('src'));
+			$('#img').attr('src','1.png');
+			console.log($('#img').attr('src')); 
+ 
+		</script>
+		<input type="text" id="text" value="默认值" /> 
+		<script>
+			console.log($("#text").val());
+			/*val的使用场景是为表单元素设定value值，例如text、button、checkbox*/
+			$("#text").val('username'); 
+			console.log($("#text").val());
+		</script>
+		<script>
+			function selectAll() {
+				var firstCheck = event.target;
+				//返回属性的值
+				var checked = $(firstCheck).prop("checked");
+				alert(checked);
+				$('#outerDiv>input').prop('checked',checked);
+				//prop() 方法设置或返回被选元素的属性和值。
+			}
+		</script>
+		<div id="outerDiv">
+			<input type="checkbox" id = 'selectAll' onchange="selectAll()"/>
+			<input type="checkbox"/>
+			<input type="checkbox"/>
+			<input type="checkbox"/>
+			<input type="checkbox"/>
+		</div>
+	</body>
+</html>

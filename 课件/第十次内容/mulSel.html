@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			select {
+				height: 110px;
+				width: 60px;
+				float: left;
+			}
+			
+			input {
+				display: block;
+			}
+			
+			#div1 {
+				float: left;
+				padding: 30px 5px;
+			}
+			#div3 {
+				margin-left: 40px;
+				clear: left;
+			}
+			
+			#div3 input {
+				display: inline;
+			}
+		</style>
+	</head>
+
+	<body>
+		<select id="sel1" name="leftcity" multiple="true">
+			<option value="1">北京</option>
+			<option value="2">上海</option>
+			<option value="3">广州</option>
+			<option value="4">深圳</option>
+			<option value="5">天津</option>
+			<option value="6">长沙</option>
+		</select>
+		<div id="div1">
+			<input type="button" id="leftbtn" value="<" />
+			<input type="button" id="rightbtn" value=">" />
+		</div>
+
+		<select id="sel2" name="rightcity" multiple="true">
+		</select>
+		<div id="div3">
+			<input type="button" id="allleftbtn" value="<<" />
+			<input type="button" id="allrightbtn" value=">>" />
+		</div>
+	</body>
+	<script type="text/javascript">
+		$("#rightbtn").click(function(){
+			$("#sel2").append($("#sel1 option:selected"));
+			$("#sel2 option").prop("selected",false);
+		})
+		$("#leftbtn").click(function(){
+			$("#sel1").append($("#sel2 option:selected"));
+			$("#sel1 option").prop("selected",false);
+		})
+		$("#allleftbtn").click(function(){
+			$("#sel1").append($("#sel2 option"));
+		})
+		$("#allrightbtn").click(function(){
+			$("#sel2").append($("#sel1 option"));
+		})
+
+	</script>
+
+</html>

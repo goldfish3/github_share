@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        //window.onload方法只能保存一个方法,所以上面的方法不会被执行
+        //window.onload方法会在所有数据加载完毕之后调用
+        // window.onload = function () {
+        //     one();
+        // };
+        // window.onload = function () {
+        //     two();
+        // };
+        //jquery的这个方法和javascript的上述方法是等价的
+        // $(window).load = function(){
+
+        // }
+
+        //js的这个方法在dom加载完毕（而不是所有数据加载完毕），就会调用，可以保存多个方法
+        $(function () {
+            one();
+        });
+        $(function(){
+            two();
+        });
+        var one = function(){
+            alert("one");
+        };
+        var two = function(){
+            alert("two");
+        };
+    </script>
+</body>
+</html>

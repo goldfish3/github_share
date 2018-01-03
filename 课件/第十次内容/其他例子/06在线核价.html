@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>在线核价</title>
+<style type="text/css">
+<!--
+body{
+	padding : 0px;
+	margin : 165px 0px 0px 160px;
+	font-size : 12px;
+	font-family : Arial, Helvetica, sans-serif;
+	color : #FFFFFF;
+	background : #000000 url(bg2.jpg);
+}
+//设置body下面的层
+body > div{
+margin: 5px; 
+padding : 0px;
+}
+//设置层下面的class为detail的标签
+div.detail{
+	display : none;
+	margin : 3px 0px 2px 15px;
+}
+//设置层下面的id为totalPrice的标签
+div#totalPrice{
+	padding : 10px 0px 0px 280px;
+	margin-top : 15px;
+	width : 85px;
+	border-top : 1px solid #FFFFFF;
+}
+//设置input标签
+input{
+	font-size : 12px;
+	font-family : Arial, Helvetica, sans-serif;
+}
+//设置input标签中class为quantity的标签
+input.quantity{
+	border : 1px solid #CCCCCC;
+	background : #3f1415; color:#FFFFFF;
+	width : 15px; text-align:center;
+	margin : 0px 0px 0px 210px
+}
+
+-->
+</style>
+<script language="javascript" src="scripts/jquery-1.3.2.min.js"></script>
+<script type="text/javascript">
+	//在这里编写代码
+
+
+</script>
+</head>
+
+<body>
+<div>
+<input type="checkbox" id="LiangCaiCheck"><label for="LiangCaiCheck">凉菜</label>
+<span price="0.5"><input type="text" class="quantity"> ￥<span></span>元</span>
+	<div class="detail">
+		<label><input type="radio" name="LiangCai" checked="checked">拍黄瓜</label>
+		<label><input type="radio" name="LiangCai">香油豆角</label>
+		<label><input type="radio" name="LiangCai">特色水豆腐</label>
+<label><input type="radio" name="LiangCai">香芹醋花生</label>
+	</div>
+</div>
+    
+<div>
+<input type="checkbox" id="SuCaiCheck"><label for="SuCaiCheck">素菜</label>
+<span price="1"><input type="text" class="quantity"> ￥<span></span>元</span>
+	<div class="detail">
+		<label><input type="radio" name="SuCai" checked="checked">虎皮青椒</label>
+		<label><input type="radio" name="SuCai">醋溜土豆丝</label>
+		<label><input type="radio" name="SuCai">金勾豆芽</label>
+	</div>
+</div>
+    
+<div>
+<input type="checkbox" id="HunCaiCheck"><label for="HunCaiCheck">荤菜</label>
+<span price="2.5"><input type="text" class="quantity"> ￥<span></span>元</span>
+	<div class="detail">
+		<label><input type="radio" name="HunCai" checked="checked"/>麻辣肉片</label>
+		<label><input type="radio" name="HunCai">红烧牛柳</label>
+		<label><input type="radio" name="HunCai">糖醋里脊</label>
+	</div>
+</div>
+    
+<div>
+<input type="checkbox" id="SoupCheck"><label for="SoupCheck">热汤</label>
+<span price="1.5"><input type="text" class="quantity"> ￥<span></span>元</span>
+	<div class="detail">
+		<label><input type="radio" name="Soup" checked="checked"/>西红柿鸡蛋汤</label>
+		<label><input type="radio" name="Soup">南瓜汤</label>
+	</div>
+</div>
+<hr>
+<div id="totalPrice"></div>
+</body>
+</html>

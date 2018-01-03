@@ -1,0 +1,159 @@
+1、准备HTML代码：
+
+<p title="hello world">您认为学习计算机好不好呢？</p>
+ <ul>
+ 	<li title="1">好</li>
+ 	<li title="2">很好</li>
+ 	<li title="3">非常好</li>
+ 	<li title="4">特别好</li>
+ 	<li title="5">太好了</li>
+ 	<li title="6">好的无法描述了</li>
+</ul>
+
+操作：
+（1）取得p标签元素获得jQuery对象
+     	取得ul下的“很好”项
+	打印出p标签的title属性值；
+	打印出“很好”项的里面的文本值；
+	打印出“很好”项的title属性值；
+
+
+
+（2）将<li title='abc'>hello</li>节点添加到<ul>后面
+
+（3）功能：在文本框上输入数字，然后点击click按钮，动态创建该数字代表数目的文本框，添加到下方的div容器中
+<input type="text" id="itemsNumber"> 
+<input type="button" id="btn" value="click" onclick="addItems();">
+<div id="div1"></div>
+
+
+
+（4）动态创建三个节点：
+	<li title='hello'>hello</li>
+	<li title='hello'>world</li>
+	<li title='hello'>hello world</li>
+
+	将其添加到ul中；
+	然后将索引为4的li项置于<li title='hello'>hello world</li>节点后
+
+
+（5）HTML代码如下：
+<p title="hello world">您认为学习计算机好不好呢？</p>
+ <ul>
+ 	<li title="1">好</li>
+ 	<li title="2">很好</li>
+ 	<li title="3">非常好</li>
+ 	<li title="4">特别好</li>
+ 	<li title="5">太好了</li>
+ 	<li title="6">好的无法描述了</li>
+</ul>
+
+将上面的“非常好”插入到“太好了”的后面。
+
+
+
+（6）	a、将“非常好”的项内容清空；
+     	b、将“非常好”项移除；
+
+(7) 实现点击哪个项，就复制哪个项，然后把这个复制的项添加到ul后面；
+
+(8) 使用<a href='http://www.google.com'>Google.com</a>替换掉上面的<p>标签
+
+
+（9）HTML代码如下：
+<p title="hello world">您认为学习计算机好不好呢？</p><br>
+<p title="hello world">您认为学习计算机好不好呢？</p><br>
+<p title="hello world">您认为学习计算机好不好呢？</p>
+
+(把p标签加上链接)
+使用jQuery代码，把超链接<a href='http://www.baidu.com'><b></b></a>添加到所有的<p>标签当中
+
+
+（10）HTML代码如下：
+<input type="button" value="button1">
+<input type="button" value="button2">
+<input type="button" value="button3"><br>
+<p title="hello world">您认为学习计算机好不好呢？</p>
+
+a、单击第一个按钮button1，修改p标签的属性为
+title="welcome",hello="world"
+
+b、单击第二个按钮button2，打印出p标签的hello属性值
+
+c、单击第三个按钮button3，移除p标签的title属性
+
+
+（11）如下样式和HTML代码
+<style type="text/css">
+.high{
+	font-weight: bold;
+	color:red
+}
+.another{
+	font-style:italic;
+	color:green
+}
+</style>
+
+<input type="button" value="button1">
+<input type="button" value="button2">
+<input type="button" value="button3">
+<input type="button" value="button4">
+<input type="button" value="button5">
+<input type="button" value="button6">
+<input type="button" value="button7">
+<p title="hello world" class="hello">您认为学习计算机好不好呢？</p>
+
+a、单击第1个按钮，打印出p标签的class属性
+b、单击第2个按钮，把p标签的class属性设置为high
+c、单击第3个按钮，给p标签添加样式high
+d、单击第4个按钮，移除p标签的high样式
+e、单击第5个按钮，移除p标签的所有样式
+f、单击第6个按钮，p标签的样式在another和没有样式之间切换
+g、单击第7个按钮，判断p标签有没有使用样式为another的样式
+
+
+（12） 
+HTML代码如下：
+<input type="button" value="button1">
+<input type="button" value="button2">
+<input type="button" value="button3">
+<input type="button" value="button4">
+<input type="button" value="button5">
+<input type="button" value="button6"><br>
+<p title="hello world"><a href="www.baidu.com">您认为学习计算机好不好呢？</a></p>
+
+a、单击第1个按钮，打印出p标签内的所有内容；
+b、单击第2个按钮，打印出p标签内的文本内容；
+
+c、单击第3个按钮，设置p标签内的html标签为“<a href="http://www.google.com">hello world</a>”
+
+d、单击第4个按钮，设置p标签内的文本为“<a href="http://www.google.com">hello world</a>”
+
+e、单击第5个按钮，取得该按钮的value值
+
+f、单击第6个按钮，设置该按钮的value值为“Hello world”
+
+（13）事件的引入
+HTML代码：
+<input type="text" id="username" value="username345"><br>
+<input type="password" id="password" value="password"><br>
+<input type="button" value="click me">
+
+
+a、当用户名的文本框获得焦点时，首先获取到该文本框的value值，然后打印出来；
+如果获得的value值是缺省的value值（defaultValue属性），则清空用户名文本框
+
+b、当用户名的文本框失去焦点时，获得当前用户输入的文本值，打印出来，入股用户没有输入，则用户名填入缺省value值；
+
+
+14
+页面功能：
+两个按钮，一个选择文件按钮，一个more按钮，一个div，HTML代码如下：
+<input type="file">
+<input type="button"value="more...">
+<div id="div1"></div>
+点击more按钮，动态创建选择文件按钮和remove按钮，给remove按钮注册事件，点击remove按钮时，移除当前所创建的选择文件按钮和自身；
+
+
+

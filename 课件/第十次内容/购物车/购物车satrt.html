@@ -1,0 +1,181 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>购物车</title>
+<link rel="stylesheet" type="text/css" href="css/apple.css"/>
+<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".add").click(function(){
+		var div = $('<li id="myli">'
+                +'<div class="shop-info">'
+                    +'<input type="checkbox" class="check goods-check goodsCheck">'
+                    +'<div class="shop-info-img">'
+                       +' <a href="#"><img src="img/a.png" /></a>'
+                    +'</div>'
+                    +'<div class="shop-info-text">'
+                        +'<h4>Apple MacBook Pro 13.3英寸笔记本电脑 银色(Core i5 处理器/8GB内存/128GB SSD闪存/Retina屏 MF839CH/A)</h4>'
+                        +'<div class="shop-brief"><span>重量:3.3kg</span><span>颜色:标配版</span><span>版本:13.3英寸</span></div>'
+                       +' <div class="shop-price">'
+                            +'<div class="shop-pices">￥<b class="price">8000.00</b></div>'
+                           +' <div class="shop-arithmetic">'
+                                +'<a href="#" class="minus">-</a>'
+                                +'<span class="num">1</span>'
+                                +'<a href="#" class="plus">+</a>'
+                            +'</div>'
+                        +'</div>'
+                    +'</div>'
+                +'</div>'
+            +'</li>');
+        $(this).closest(".shop-name").next().append(div);
+        //console.log($(this).closest(".shop-name").length);
+       // console.log($(this).parents(".shop-name").length);
+        //$(this).parents(".shop-name");
+	});
+	});
+</script>
+</head>
+<body>
+<!--头部开始-->
+<div class="header">
+    <h1>购物车</h1>
+    <a href="#" class="back"><span></span></a>
+    <a href="#" class=""></a>
+</div>
+<!--头部结束-->
+<div class="shopping">
+
+    <div class="shop-group-item">
+        <div class="shop-name">
+            <input type="checkbox" class="check goods-check shopCheck">
+            <h4><a href="#">苹果专卖店</a></h4>
+            <div class="coupons"><span><a href="javascript:;" class="add">添加</a></span><em>|</em><span><a href="#" >删除</a></span></div>
+        </div>
+        <ul>
+            <li>
+                <div class="shop-info">
+                    <input type="checkbox" class="check goods-check goodsCheck">
+                    <div class="shop-info-img">
+                        <a href="#"><img src="img/a.png" /></a>
+                    </div>
+                    <div class="shop-info-text">
+                        <h4>Apple MacBook Pro 13.3英寸笔记本电脑 银色(Core i5 处理器/8GB内存/128GB SSD闪存/Retina屏 MF839CH/A)</h4>
+                        <div class="shop-brief"><span>重量:3.3kg</span><span>颜色:标配版</span><span>版本:13.3英寸</span></div>
+                        <div class="shop-price">
+                            <div class="shop-pices">￥<b class="price">8000.00</b></div>
+                            <div class="shop-arithmetic">
+                                <a href="#" class="minus">-</a>
+                                <span class="num">1</span>
+                                <a href="#" class="plus">+</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+            <div class="shop-info">
+                <input type="checkbox" class="check goods-check goodsCheck">
+                <div class="shop-info-img">
+                    <a href="#"><img src="img/b.png" /></a>
+                </div>
+                <div class="shop-info-text">
+                    <h4>Apple MacBook Pro 13.3英寸笔记本电脑 银色(Core i5 处理器/8GB内存/128GB SSD闪存/Retina屏 MF839CH/A)</h4>
+                    <div class="shop-brief"><span>重量:3.3kg</span><span>颜色:标配版</span><span>版本:13.3英寸</span></div>
+                    <div class="shop-price">
+                        <div class="shop-pices">￥<b class="price">4000.00</b></div>
+                        <div class="shop-arithmetic">
+                            <a href="#" class="minus">-</a>
+                            <span class="num">1</span>
+                            <a href="#" class="plus">+</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </li>
+            <li>
+                <div class="shop-info">
+                    <input type="checkbox" class="check goods-check goodsCheck">
+                    <div class="shop-info-img">
+                        <a href="#"><img src="img/d.png" /></a>
+                    </div>
+                    <div class="shop-info-text">
+                        <h4>Apple MacBook Pro 13.3英寸笔记本电脑 银色(Core i5 处理器/8GB内存/128GB SSD闪存/Retina屏 MF839CH/A)</h4>
+                        <div class="shop-brief"><span>重量:3.3kg</span><span>颜色:标配版</span><span>版本:13.3英寸</span></div>
+                        <div class="shop-price">
+                            <div class="shop-pices">￥<b class="price">3600.00</b></div>
+                            <div class="shop-arithmetic">
+                                <a href="#" class="minus">-</a>
+                                <span class="num">1</span>
+                                <a href="#" class="plus">+</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="shopPrice">本店总计：￥<span class="shop-total-amount ShopTotal">0.00</span></div>
+    </div>
+
+    <div class="shop-group-item">
+        <div class="shop-name">
+            <input type="checkbox" class="check goods-check shopCheck">
+            <h4><a href="#">安卓专卖店</a></h4>
+            <div class="coupons"><span><a href="javascript:;" class="add">添加</a></span><em>|</em><span><a href="#" >删除</a></span></div>
+        </div>
+        <ul>
+            <li>
+                <div class="shop-info">
+                    <input type="checkbox" class="check goods-check goodsCheck">
+                    <div class="shop-info-img">
+                        <a href="#"><img src="img/e.png" /></a>
+                    </div>
+                    <div class="shop-info-text">
+                        <h4>Apple MacBook Pro 13.3英寸笔记本电脑 银色(Core i5 处理器/8GB内存/128GB SSD闪存/Retina屏 MF839CH/A)</h4>
+                        <div class="shop-brief"><span>重量:3.3kg</span><span>颜色:标配版</span><span>版本:13.3英寸</span></div>
+                        <div class="shop-price">
+                            <div class="shop-pices">￥<b class="price">1000.00</b></div>
+                            <div class="shop-arithmetic">
+                                <a href="#" class="minus">-</a>
+                                <span class="num">1</span>
+                                <a href="#" class="plus">+</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="shop-info">
+                    <input type="checkbox" class="check goods-check goodsCheck">
+                    <div class="shop-info-img">
+                        <a href="#"><img src="img/a.png" /></a>
+                    </div>
+                    <div class="shop-info-text">
+                        <h4>Apple MacBook Pro 13.3英寸笔记本电脑 银色(Core i5 处理器/8GB内存/128GB SSD闪存/Retina屏 MF839CH/A)</h4>
+                        <div class="shop-brief"><span>重量:3.3kg</span><span>颜色:标配版</span><span>版本:13.3英寸</span></div>
+                        <div class="shop-price">
+                            <div class="shop-pices">￥<b class="price">800.00</b></div>
+                            <div class="shop-arithmetic">
+                                <a href="#" class="minus">-</a>
+                                <span class="num">1</span>
+                                <a href="j#" class="plus">+</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="shopPrice">本店总计：￥<span class="shop-total-amount ShopTotal">0.00</span></div>
+    </div>
+</div>
+
+<div class="payment-bar">
+    <div class="all-checkbox"><input type="checkbox" class="check goods-check" id="AllCheck">全选</div>
+    <div class="shop-total">
+        <strong>总价：<i class="total" id="AllTotal">0.00</i></strong>
+        <span>减免：123.00</span>
+    </div>
+    <a href="#" class="settlement">结算</a>
+</div>
+</body>
+</html>

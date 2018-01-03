@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <div id="panel">
+        <h5 class="head">什么是jquery?</h5>
+        <div class="content">
+            jquery是一个优秀的javascript的库，啊
+            啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+            啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+            啊啊啊啊啊啊啊
+        </div>
+    </div>
+    <script>
+        $(function(){
+            $("#panel .head").bind("click",function(){
+                if ($(this).next().is(":visible")){
+                    $(this).next().hide("fast");
+                }else{
+                    $(this).next().show("fast");
+                };
+            });
+        });
+    </script>
+</body>
+</html>

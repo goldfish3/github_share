@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+	<head>
+		<title>下拉菜单</title>
+		<script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
+		<style type="text/css">
+			ul,
+			ol,
+			li {
+				list-style: none;
+				padding: 0px;
+				margin:6px;
+				float: left;
+				font-family: "微软雅黑";
+			}
+			
+			#menu * {
+				line-height: 30px;
+			}
+			
+			/*//设置层中的a标签 */
+			#menu a {
+				text-decoration: none;
+				display: block;
+				color: #000000;
+			}
+			
+			/*//设置层中的ul标签*/
+			#menu ul {
+				text-align: left;
+				/*background: #efefef;*/
+			}
+			
+			/*//设置层中class为arrow的标签*/
+			#menu .arrow {
+				padding-right: 5px;
+			}
+			
+			#menu>ul {
+				height: 30px;
+			}
+			
+			/*//设置层下的ul下的li标签*/
+			#menu>ul>li {
+				text-align: center;
+				display: inline-block;
+				width: 80px;
+			}
+			
+			/*//设置层下的ul下的li中的a标签*/
+			#menu>ul>li>a {
+				color: black;
+			}
+			
+			#menu>ul>li:hover {
+				background: darksalmon;
+			}
+			
+			#menu>ul>li ul {
+				display: none;
+				width: 150px;
+				position: absolute;
+				background: #C1Cd94;
+				box-shadow: 2px 2px 2px dimgray;
+				-webkit-box-shadow: 2px 2px 2px dimgray;
+				/*-moz-box-shadow: 2px 2px 2px #225599;*/
+			}
+			#menu>ul>li>ul ul {
+				display: none;
+				width: 150px;
+				position: absolute;
+				background: burlywood;
+				box-shadow: 2px 2px 2px dimgray;
+				-webkit-box-shadow: 2px 2px 2px dimgray;
+				/*-moz-box-shadow: 2px 2px 2px #225599;*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="menu">
+			<ul>
+				<li>
+					<a href="">新闻</a>
+					<ul>
+						<li>
+							<a href="">国内新闻</a>
+						</li>
+						<li>
+							<a href="">国际新闻</a>
+							<ul>
+								<li>
+									<a href="">趣闻</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="">社会图片</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="">娱乐</a>
+					<ul>
+						<li>
+							<a href="">音乐</a>
+						</li>
+						<li>
+							<a href="">图书</a>
+						</li>
+						<li>
+							<a href="">电影</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		$("li").hover(
+			function(){
+				$(this).children("ul").slideDown(200);
+			},
+			function(){
+				$(this).children("ul").hide();
+			}
+		)
+		
+	</script>
+
+</html>

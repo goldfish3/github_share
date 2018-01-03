@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.background {
+				background-color: yellow;
+			}
+			
+		</style>
+		<script src="../../../js/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function addBClass() {
+				//找到选中的checkbox那一行。
+				$('#table input:checked').parent().parent().addClass('background');
+			}
+			function deleteBClass() {
+				$('#table input:checked').parent().parent().removeClass('background');
+			}
+			function toggleClass() {
+				$('#table input:checked').parent().parent().toggleClass('background');
+			}
+		</script>
+	</head>
+	<body>
+		<table border="" cellspacing="" cellpadding="" id="table">
+			<tr>
+				<td><input type="checkbox"/></td>
+				<td>Data</td>
+				<td>Data</td>
+				<td>Data</td>
+				<td>Data</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"/></td>
+				<td>Data</td>
+				<td>Data</td>
+				<td>Data</td>
+				<td>Data</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"/></td>
+				<td>Data</td>
+				<td>Data</td>
+				<td>Data</td>
+				<td>Data</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"/></td>
+				<td>Data</td>
+				<td>Data</td>
+				<td>Data</td>
+				<td>Data</td>
+			</tr>
+		</table>
+		<input type="button" onclick="addBClass()" value="添加背景样式类" />
+		<input type="button" onclick="deleteBClass()" value="删除背景样式类" />
+		<input type="button" onclick="toggleClass()" value="反转样式类" />
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../../../js/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function turnRight() {
+				//属性为#outerDiv的select儿子的第一个儿子的option儿子的选中的时候
+				var firstSelected = $("#outerDiv>select:first-child>option:selected");
+				var secondSelect = $("#outerDiv>select:last-child");
+				//把第一个里面的移到第二个里面的最后面。
+				secondSelect.append(firstSelected);
+				//firstSelected.appendTo(secondSelect);
+				//所有的不选中
+				firstSelected.attr('selected',false);
+				//attr() 方法设置或返回被选元素的属性值。
+			}
+			function turnLeft() {
+				var secondSelected = $("#outerDiv>select:last-child>option:selected");
+				var firstSelect = $("#outerDiv>select:first-child");
+				/*firstSelect.append(secondSelected);*/
+				secondSelected.appendTo(firstSelect);
+				secondSelected.attr('selected',false);
+			}
+			function turnAllRight() {
+				//属性为#outerDiv的select儿子的第一个儿子的所有option儿子
+				var firstOptions = $("#outerDiv>select:first-child>option");
+				var secondSelect = $("#outerDiv>select:last-child");
+				/*secondSelect.append(firstOptions);*/
+				firstOptions.appendTo(secondSelect);
+				firstOptions.attr('selected',false);
+			}
+			function turnAllLeft() {
+				var secondOptions = $("#outerDiv>select:last-child>option");
+				var firstSelect = $("#outerDiv>select:first-child");
+				/*firstSelect.append(secondOptions);*/
+				secondOptions.appendTo(firstSelect);
+				secondOptions.attr('selected',false);
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+		<div id="outerDiv">
+			<select multiple="multiple">
+				<option value="">java</option>
+				<option value="">.net</option>
+				<option value="">web前端</option>
+				<option value="">测试</option>
+				<option value="">运维</option>
+
+			</select>
+			<div style="display: inline-block;">
+				<input type="button" value=">>" onclick="turnRight()"/><br/>
+				<input type="button" value="<<" onclick="turnLeft()"/><br/>
+				<input type="button" value="全部>>" onclick="turnAllRight()"/><br/>
+				<input type="button" value="全部<<" onclick="turnAllLeft()"/><br/>
+			</div>
+			<select multiple="multiple" ></select>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <style type="text/css">
+        #panel1{
+            width: 300px;
+        }
+        #panel1 .head{
+        display: none;
+        }
+        </style>
+        <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript">
+        //下面这种写法在jquery3.2.1中已经失效了，在最新的jquery中，toogle不用点击会直接调用
+        $(function(){
+            $("#panel h5.head").toggle(function(){
+                $(this).next().toggle();
+            },function(){
+                $(this).next().toggle();
+            })
+        })
+
+            //hover可以看成是mouseover和mouseout的集合
+        $(function () {
+            $("#panel h5.head").hover(function(){
+                $(this).next().toggle();
+
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="panel">
+        <h5 class="head">什么是jquery?</h5>
+        <div class="content">
+            jquery是一个优秀的javascript的库，啊
+            啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+            啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+            啊啊啊啊啊啊啊
+        </div>
+    </div>
+</body>
+</html>

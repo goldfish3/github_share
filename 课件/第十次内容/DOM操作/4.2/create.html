@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../../../js/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+
+			$(document).ready(function() {
+					//通过$符号创建的元素为jquery对象,对象在内存中类似于document.createElement
+					var image = $('<img src="1.png" alt="图片" style="width: 100px;"/>');//完成了DOM对象的创建，并把这个DOM对象自动封装为jQuery对象！
+					/*
+					var image = $("<img/>");
+					image.attr("alt","图片");
+					image.css("width","100px");
+					image.attr("src","1.png");
+					*/
+					//append方法是jQuery对象的方法
+					//$("body").append(image);
+					$(document.body).append(image);
+				});
+		
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
