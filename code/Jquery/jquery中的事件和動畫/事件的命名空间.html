@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <style type="text/css">
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div>事件的绑定</div>
+    <script type="text/javascript">
+        $("div").bind("click.plugin",function () {
+             alert("点击事件");
+        });
+        $("div").bind("mouseover.plugin",function () {
+            alert("鼠标覆盖事件");
+        });
+        $("div").bind("dbclick",function(){
+            alert("双击事件");
+        });
+        $("div").unbind(".plugin");
+    </script>
+</body>
+</html>

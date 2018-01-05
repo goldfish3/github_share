@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <style type="text/css">
+        .panel{
+            width: 100px;
+            height: 100px;
+            background: gray;
+            position: relative;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+        <div class="panel" id="p1"></div>
+        <div class="panel" id="p2"></div>
+        <div class="panel" id="p3"></div>
+            <script type="text/javascript">
+            //普通动画：show() hide()　fadeIn() fadeOut() slideUp slideDown
+            //自定义动画
+            $("#pl").click(function () {
+                //+=代表累加，去掉之后就是直接移动
+                $(this).animate({left:"+=100px",top:"+=100px"},3000);
+            });
+
+        //综合动画
+        $("#p2").click(function () {
+            $(this).animate({left:"400px",height:"200px",opacity:"1"},3000)
+                .animate({top:"200px",width:"200px"},3000)
+                .fadeOut("slow");
+        });
+
+        //动画的停止
+        //这里当hover动作发生的时候，先停止之前的动作
+        $("#p3").hover(function(){
+            $(this).stop().animate({"height":150,"width":150},300);
+        },function(){
+            $(this).stop().animate({"height":100,"width":100},300);
+        });
+    </script>
+</body>
+</html>

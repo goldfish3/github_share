@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+</head>
+<body>
+    <button id="btn">这是一个按钮</button>
+    <input type="text" id="ipt">
+    <script>
+        $("#btn").click(function () {
+            alert("点击了按钮");
+        });
+        // $("#btn").bind("myclick",function () {
+        //    alert("点了我");
+        // });
+        // 调用click直接模拟按钮的点击事件
+        $("#btn").click();
+        $("#ipt").trigger("focus");
+
+        //下面这个只触发focus，不执行浏览器默认的操作
+        // $("#ipt").triggerHandler("focus");
+    </script>
+
+</body>
+</html>
