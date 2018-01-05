@@ -6,24 +6,189 @@
     <script type="text/javascript" src="../js/jquery.js"></script>
     <style type="text/css">
         #content{
-            width: 600px;
+            width: 590px;
             height: 200px;
             border: 1px solid black;
             position: fixed;
+            padding: 0px;
         }
-        #title{
-            width: 600px;
+        #title {
+            width: 590px;
             height: 30px;
-            background: lightgray;
-            position: absolute;
+            top: 0px;
+            left: 0px;
+            background: url("../img/btn_cartoon.gif");
+            position: relative;
+            padding: 0px;
+            margin: 0px;
+            display: inline-block;
+        }
+        div .indice{
+            width: 6px;
+            height: 6px;
+            display: inline-block;
+            background: gray;
+            border-radius: 3px;
+            position: relative;
+        }
+        div #cartoon{
+            float: left;
+            width: 80px;
+            height: 30px;
+            display: inline-block;
+            text-align: center;
+            line-height: 30px;
+            position: relative;
+        }
+        #indice-content{
+            display: inline-block;
+            height: 30px;
+            float: left;
+        }
+        #direct{
+            width: 80px;
+            height: 30px;
+            /*background: gray;*/
+            float: left;
+            display: inline-block;
+            margin-left: 10px;
+            line-height: 30px;
+        }
+        #direct #left{
+            width: 30px;
+            height: 30px;
+            /*text-indent: -9999px;*/
+            /*background: url(../img/btn_cartoon.gif) no-repeat;*/
+            /*background-position: 0px -100px;*/
+            /*background-attachment: fixed;*/
+            /*overflow: hidden;*/
+            float: left;
+        }
+        #direct #right{
+            width: 30px;
+            height: 30px;
+            background: url("../img/btn_cartoon.gif");
+            /*background-position: ;*/
+            float: left;
+        }
+        #more{
+            float: right;
+        }
+        #picContent{
+            margin: 10px;
+            background: gray;
+            width: 570px;
+            height: 140px;
+
+            /*这里的hidden保证了超出该元素范围的控件会被裁剪*/
+            overflow: scroll;
+        }
+        #imgScroll{
+            /*只有设置了position，动画才会有效果*/
+            position: relative;
+            left: 0px;
+        }
+        #img{
+            width:128px;
+            height:96px;
+            float:left;
+            margin:5px;
         }
     </style>
 </head>
 <body>
-    <div id="content"></div>
-        <div id="title"></div>
+    <div id="content">
+        <div id="title">
+            <div id="cartoon">卡通动漫</div>
+            <div id="indice-content">
+                <div class="indice"></div>
+                <div class="indice"></div>
+                <div class="indice"></div>
+                <div class="indice"></div>
+            </div>
+            <div id="direct">
+                <span id="left">左</span>
+                <span id="right">右</span>
+            </div>
+            <a href="#" id="more">更多</a>
+        </div>
+        <div id="picContent">
+            <div id="imgScroll"></div>
+        </div>
+    </div>
     <script type="text/javascript">
+        var $context = $("#imgScroll");
+        for (var i=0; i<16; i++){
+            var $img = $("<div id='img'></div>");
+            if(parseInt(i/4) == 0){
+                $img.css({
+                    "background":"url(../img/01.jpg)"
+                });
+            }else if(parseInt(i/4) == 1){
+                $img.css({
+                    "background":"url(../img/02.jpg)"
+                });
+            }else if(parseInt(i/4) == 2){
+                $img.css({
+                    "background":"url(../img/03.jpg)"
+                });
+            }else if(parseInt(i/4) == 3){
+                $img.css({
+                    "background":"url(../img/04.jpg)"
+                });
+            }
+            $context.css({
+                width: 16 * 138,
+                overflow:"hidden"
+            });
+            $context.append($img);
+        }
+        var num = 0;
+        $("#right").click(a = function () {
+            if ($context.offset().left > (-11*138)) {
+                num++;
+                $("#imgScroll").animate({
+                    left: "-=" + 4 * 138 + "px"
+                }, 1000);
+            }else{
+                num = 0;
+                $("#imgScroll").animate({
+                    left: "0px"
+                }, 500,function () {
 
+                });
+            }
+            selectPoint();
+        });
+        $("#left").click(function () {
+            if ($context.offset().left <= 0){
+                num--;
+                $context.animate({
+                    left: "+=" + 4 * 138 + "px"
+                }, 1000);
+            }else{
+                num = 3;
+                $context.animate({
+                    left: -12*138 + "px"
+                }, 500);
+            }
+            selectPoint();
+        });
+        var indiceContent = $("#indice-content");
+
+        //children函数返回的所有节点，但都是javascript对象
+        var cld = indiceContent.children();
+        var selectPoint = function () {
+            for(var i=0; i<4; i++){
+                $(cld[i]).css({
+                    "background" : "gray"
+                });
+            }
+            $(cld[num]).css({
+                "background" : "blue"
+            });
+        }
+        selectPoint();
     </script>
 </body>
 </html>
