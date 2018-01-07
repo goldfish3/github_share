@@ -57,7 +57,7 @@
         #direct #left{
             /*display: block;*/
             width: 30px;
-            height: 30px;
+            height: 23px;
             /*text-indent: -9999px;*/
             background: url(../img/btn_cartoon.gif) no-repeat;
             background-position: 0px -400px;
@@ -78,9 +78,11 @@
         /*}*/
         #direct #right{
             width: 30px;
-            height: 30px;
-            background: url("../img/btn_cartoon.gif");
-            /*background-position: ;*/
+            height: 23px;
+            background: url(../img/btn_cartoon.gif) no-repeat;
+            background-position: -30px -400px;
+            /*这句话可以保证就算标签上有文字，文字也不会显示*/
+            text-indent: -9999px;
             float: left;
         }
         #more{
@@ -158,7 +160,7 @@
         var num = 0;
         $("#right").click(a = function () {
             if ($context.offset().left > (-11*138)) {
-                // $(this).unbind("click");
+                // $(this).prop("disabled",true);
                 num++;
                 $("#imgScroll").animate({
                     left: "-=" + 4 * 138 + "px"

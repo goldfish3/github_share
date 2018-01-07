@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+        <script>
+        $(function () {
+            var inputs = $("input[type=checkbox]");
+
+            //each方法遍历数组中的每一个元素
+            $("#reverse").click(function () {
+                inputs.each(function () {
+                    this.checked =! this.checked;   //这里如果使用!=没有效果
+                });
+            });
+
+            $("#checkOr").click(function () {
+               if(this.checked == true){
+                   inputs.each(function () {
+                       this.checked = true;
+                   });
+               }else{
+                   inputs.each(function () {
+                       this.checked = false;
+                   });
+               }
+            });
+        });
+    </script>
+    你的爱好运动是？
+        <input type="checkbox" id="checkOr">全选/全不选
+    <br>
+    <form action="">
+        <input type="checkbox">足球
+        <input type="checkbox">篮球
+        <input type="checkbox">羽毛球
+        <input type="checkbox">乒乓球
+        <br>
+        <input type="button" value="全选" id="all">
+        <input type="button" value="全不选" id="allNot">
+        <input type="button" value="反 选" id="reverse">
+        <input type="submit" value="提 交" id="commit">
+    </form>
+</body>
+</html>

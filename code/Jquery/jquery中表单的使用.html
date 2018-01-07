@@ -9,16 +9,30 @@
             height: 100px;
             margin: 5px;
         }
-        input:focus,textarea:focus{
-            border: 1px solid red;
-            background: red;
+        /*这是使用css直接添加链接伪类，但是ie浏览器并不支持这种方式,这里我们使用css自己做一个*/
+        /*input:focus,textarea:focus{*/
+            /*border: 1px solid darkseagreen;*/
+            /*background: red;*/
+        /*}*/
+        .focus{
+            background:green;
         }
     </style>
 </head>
 <body>
     <script type="text/javascript">
         $(function () {
-
+            $("input,textarea").focus(function(){
+                $(this).addClass("focus");
+            }).blur(function () {
+                $(this).removeClass("focus");
+            });
+            $("#addBtn").click(function () {
+                $("textarea").animate({scrollTop:"+=50"},200);
+            });
+            $("#reduceBtn").click(function () {
+                $("textarea").animate({scrollTop:"-=50"},200);
+            });
         });
     </script>
     <form action="">
@@ -31,6 +45,8 @@
             密码：<input type="text">
             <br>
             详细信息:<textarea name="" id="area" cols="30" rows="10"></textarea>
+            <button id="addBtn">增加</button>
+            <button id="reduceBtn">减少</button>
         </fieldset>
     </form>
 </body>
