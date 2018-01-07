@@ -55,15 +55,27 @@
             line-height: 30px;
         }
         #direct #left{
+            /*display: block;*/
             width: 30px;
             height: 30px;
             /*text-indent: -9999px;*/
-            /*background: url(../img/btn_cartoon.gif) no-repeat;*/
-            /*background-position: 0px -100px;*/
-            /*background-attachment: fixed;*/
+            background: url(../img/btn_cartoon.gif) no-repeat;
+            background-position: 0px -400px;
             /*overflow: hidden;*/
             float: left;
+            /*cursor: pointer;*/
         }
+        /*#direct #left{*/
+            /*!*display:block;*!*/
+            /*float:left;*/
+            /*width:30px;*/
+            /*height:23px;*/
+            /*!*overflow:hidden;*!*/
+            /*background:url(../img/btn_cartoon.gif) no-repeat;*/
+            /*background-position: 0px -400px;*/
+            /*!*text-indent:-9999px;*!*/
+            /*!*cursor:pointer;*!*/
+        /*}*/
         #direct #right{
             width: 30px;
             height: 30px;
@@ -107,7 +119,7 @@
                 <div class="indice"></div>
             </div>
             <div id="direct">
-                <span id="left">左</span>
+                <span id="left"></span>
                 <span id="right">右</span>
             </div>
             <a href="#" id="more">更多</a>
@@ -146,6 +158,7 @@
         var num = 0;
         $("#right").click(a = function () {
             if ($context.offset().left > (-11*138)) {
+                // $(this).unbind("click");
                 num++;
                 $("#imgScroll").animate({
                     left: "-=" + 4 * 138 + "px"
