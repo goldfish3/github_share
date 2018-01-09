@@ -27,6 +27,11 @@ def saveUserInfo(username,password,type):
     connection.commit()
     return "成功"
 
-def inquireUserInfo(username):
+def inquireUserInfo(username,password):
     sql = "select * from USER WHERE username = %s password = %s"
-    cursor.execute(sql,)
+    cursor.execute(sql,username,password)
+    result = cursor.fetchall()
+    if(len(result) > 0):
+        return "success"
+    else:
+        return "error"

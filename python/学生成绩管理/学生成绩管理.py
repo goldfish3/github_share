@@ -30,7 +30,8 @@ def regist():
 @app.route('/login',methods=["POST"])
 def login():
     data = json.loads(request.values.get('data'))
-    dict = {"status": "success"}
+    ans = studentDao.inquireUserInfo(data["username",data["password"]])
+    dict = {"status": ans}
     return createResponse(dict)
 
 if __name__ == '__main__':

@@ -123,11 +123,11 @@
            alert(type);
 
             var callBack = function (XMLHttpRequest,textStatus) {
-                alert("请求完成");
+                console.log("请求成功");
             };
             var succ = function (data,textStatus) {
-                alert("成功");
-
+                alert(data.status + "login");
+                window.location.href();
             };
             var err = function(XMLHttpRequest, textStatus, errorThrown){
                 console.log(textStatus);
