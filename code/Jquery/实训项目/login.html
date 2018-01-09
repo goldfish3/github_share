@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <style type="text/css">
+        body{
+            /*height: 1000px;*/
+            overflow: auto;
+        }
+        .content{
+            width: 500px;
+            /*height: 200px;*/
+            border: 1px solid green;
+            margin: 200px auto;
+            border-radius: 10px;
+            text-align: center;
+            position: fixed;
+            left: 0px;
+            right: 0px;
+            /*top: 0px;*/
+            /*bottom: 0px;*/
+            top: 0px;
+        }
+        #registContent{
+            top: 1000px;
+        }
+        .username,.password{
+            width: 480px;
+            margin: 10px 10px 0px 10px;
+            border: 1px solid green;
+            border-radius: 7px;
+            height: 50px;
+            line-height: 50px;
+        }
+        span{
+            text-align: center;
+            margin: 0px;
+        }
+        input{
+            width: 350px;
+            height: 40px;
+            border: 0px;
+            font-size: 20px;
+        }
+        .inputText{
+            color: lightgray;
+        }
+        .loginBtn,.registBtn{
+            width: 480px;
+            height: 40px;
+            background: green;
+            color: white;
+            margin: 10px 10px 0px 10px;
+            border-radius: 10px;
+        }
+        .registBtn{
+            margin: 10px;
+        }
+        input:focus{
+            outline: none;
+        }
+        .type{
+            width: 480px;
+            height: 50px;
+            margin: 10px 10px 0px 10px;
+            font-size: 20px;
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+    <div class="content" id="loginContent">
+        <form action="http://127.0.0.1:5000/login">
+            <div class="username">
+                <span class="inputText">用户名:</span>
+                <input type="text" class="userInput">
+            </div>
+            <!--<br>-->
+            <div class="password">
+                <span class="inputText">密码:</span>
+                <input type="text" class="pasInput">
+            </div>
+            <select name="" class="type">
+                <option value="0">用户类型</option>
+                <option value="1">老师</option>
+                <option value="2">学生</option>
+                <option value="3">管理员</option>
+            </select>
+            <input type="submit" value="登陆" class="loginBtn">
+            <input type="button" value="注册" class="registBtn">
+        </form>
+    </div>
+    <div class="content" id="registContent">
+        <form action="http://127.0.0.1:5000/login">
+            <div class="username">
+                <span class="inputText">用户名:</span>
+                <input type="text" class="userInput">
+            </div>
+            <!--<br>-->
+            <div class="password">
+                <span class="inputText">密码:</span>
+                <input type="text" class="pasInput">
+            </div>
+            <select name="" class="type">
+                <option value="0">用户类型</option>
+                <option value='1'>老师</option>
+                <option value='2'>学生</option>
+                <option value='3'>管理员</option>
+            </select>
+            <input type="button" value="返回登陆" class="loginBtn">
+            <input type="button" value="立即注册" class="registBtn">
+        </form>
+    </div>
+    <script type="text/javascript">
+        //登陆
+        $("#loginContent .loginBtn").click(function (e) {
+            e.preventDefault();
+           var username = $("#loginContent .userInput").val();
+           var password = $("#loginContent .pasInput").val();
+           var type = $("#loginContent .type>option:selected").val();
+           alert(type);
+
+            var callBack = function (XMLHttpRequest,textStatus) {
+                alert("请求完成");
+            };
+            var succ = function (data,textStatus) {
+                alert("成功");
+
+            };
+            var err = function(XMLHttpRequest, textStatus, errorThrown){
+                console.log(textStatus);
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(XMLHttpRequest.responseText);
+            }
+            var sendData = {
+                data: JSON.stringify({
+                    'username': username,
+                    'password': password,
+                    'type':type
+                }),
+            }
+           $.ajax({
+               type:"POST",
+               url:"http://127.0.0.1:5000/login",
+               dataType:"json",
+               //这里接收一个字符串参数，所以要将字典转成字符串
+               data:sendData,
+               complete:callBack,
+               success:succ,
+               error:err
+           });
+        });
+
+        //注册
+        $("#loginContent .registBtn").click(function () {
+            //将登陆框移出屏幕
+            var loginContent = $("#loginContent");
+            loginContent.animate({
+                top:-500
+            },500);
+
+            //将注册框移入屏幕
+            var registContent = $("#registContent");
+            registContent.animate({
+                top:0
+            },500)
+        });
+
+        //返回登陆
+        var backLogin = function () {
+            //将注册框移出屏幕
+            var registContent = $("#registContent");
+            registContent.animate({
+                top:1000
+            },500);
+
+            //将登陆框移入屏幕
+            var loginContent = $("#loginContent");
+            loginContent.animate({
+                top:0
+            },500);
+        };
+        $("#registContent .loginBtn").click(backLogin);
+
+        //立即注册
+        $("#registContent .registBtn").click(function () {
+            // e.preventDefault();
+            var username = $("#registContent .userInput").val();
+            var password = $("#registContent .pasInput").val();
+            var type = $("#registContent .type>option:selected").val();
+            alert(type);
+            var callBack = function (XMLHttpRequest,textStatus) {
+                console.log("请求完成");
+            };
+            var succ = function (data,textStatus) {
+                if (data.status == "用户名存在"){
+                    alert("用户名已存在");
+                }else if(data.status == "成功"){
+                    alert("注册成功");
+                    backLogin();
+                }else{
+                    alert("注册失败");
+                }
+                console.log(data.status);
+            };
+            var err = function(XMLHttpRequest, textStatus, errorThrown){
+                console.log(textStatus);
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(XMLHttpRequest.responseText);
+            }
+            var sendData = {
+                data: JSON.stringify({
+                    username: username,
+                    password: password,
+                    type:type
+                }),
+            }
+            $.ajax({
+                type:"POST",
+                url:"http://127.0.0.1:5000/regist",
+                dataType:"json",
+                //这里接收一个字符串参数，所以要将字典转成字符串
+                data:sendData,
+                complete:callBack,
+                success:succ,
+                error:err
+            });
+        });
+    </script>
+</body>
+</html>

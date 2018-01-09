@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <button id="insert">插入数据</button>
+    <div id="pos">插入位置</div>
+    <script type="text/javascript">
+        $(function () {
+            //默认情况下，只会加载body标签中的内容
+            $("#insert").click(function () {
+                $("#pos").load("静态页面.html",function (text,status,request) {
+                    //第一个参数是返回内容
+                    //第二个参数是状态码
+                    //第三个参数是XMLHttpRequest对象
+                    alert(text);
+                });
+            });
+        })
+    </script>
+</body>
+</html>

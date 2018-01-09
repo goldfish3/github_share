@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <button id="getData">获取数据</button>
+    <div id="err"></div>
+    <script>
+        $("#getData").click(function () {
+            var callBack = function (XMLHttpRequest,textStatus) {
+                alert("请求完成");
+                alert(XMLHttpRequest);
+                alert(textStatus);
+            };
+            var succ = function (data,textStatus) {
+                alert("成功");
+                alert(typeof(data));
+                console.log(data.name,data.password);
+                alert(textStatus);
+            };
+            var err = function(XMLHttpRequest, textStatus, errorThrown){
+                $("#err").html(textStatus);
+                $("#err").append("<br/>"+XMLHttpRequest.status);
+                $("#err").append("<br/>"+XMLHttpRequest.readyState);
+                $("#err").append("<br/>"+XMLHttpRequest.responseText);
+            }
+            $.ajax({
+                type:"GET",
+                url:"http://127.0.0.1:5000",
+                dataType:"json",
+                //就算data为空也要写这个
+                data:[],
+                complete:callBack,
+                success:succ,
+                error:err
+           });
+        });
+    </script>
+</body>
+</html>
