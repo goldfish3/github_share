@@ -29,8 +29,8 @@ def regist():
 
 @app.route('/login',methods=["POST"])
 def login():
-    data = json.loads(request.values.get('data'))
-    ans = studentDao.inquireUserInfo(data["username",data["password"]])
+    data = json.loads(request.values["data"])
+    ans = studentDao.inquireUserInfo(data["username"],data["password"])
     dict = {"status": ans}
     return createResponse(dict)
 

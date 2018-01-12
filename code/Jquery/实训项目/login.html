@@ -127,7 +127,9 @@
             };
             var succ = function (data,textStatus) {
                 alert(data.status + "login");
-                window.location.href();
+
+                // 页面跳转
+                window.location.href = "student.html";
             };
             var err = function(XMLHttpRequest, textStatus, errorThrown){
                 console.log(textStatus);
@@ -140,8 +142,8 @@
                     'username': username,
                     'password': password,
                     'type':type
-                }),
-            }
+                })
+            };
            $.ajax({
                type:"POST",
                url:"http://127.0.0.1:5000/login",

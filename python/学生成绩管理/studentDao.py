@@ -29,9 +29,11 @@ def saveUserInfo(username,password,type):
 
 def inquireUserInfo(username,password):
     sql = "select * from USER WHERE username = %s password = %s"
-    cursor.execute(sql,username,password)
+    cursor.execute(sql,[username,password])
     result = cursor.fetchall()
+    print(result)
     if(len(result) > 0):
+        # result = {"result":"success","username":username,"id":result["username"]}
         return "success"
     else:
         return "error"
