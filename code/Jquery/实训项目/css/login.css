@@ -1,0 +1,63 @@
+body{
+    /*height: 1000px;*/
+    overflow: auto;
+}
+.content{
+    width: 500px;
+    /*height: 200px;*/
+    border: 1px solid green;
+    margin: 200px auto;
+    border-radius: 10px;
+    text-align: center;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    /*top: 0px;*/
+    /*bottom: 0px;*/
+    top: 0px;
+}
+#registContent{
+    top: 1000px;
+}
+.username,.password{
+    width: 480px;
+    margin: 10px 10px 0px 10px;
+    border: 1px solid green;
+    border-radius: 7px;
+    height: 50px;
+    line-height: 50px;
+}
+span{
+    text-align: center;
+    margin: 0px;
+}
+input{
+    width: 350px;
+    height: 40px;
+    border: 0px;
+    font-size: 20px;
+}
+.inputText{
+    color: lightgray;
+}
+.loginBtn,.registBtn{
+    width: 480px;
+    height: 40px;
+    background: green;
+    color: white;
+    margin: 10px 10px 0px 10px;
+    border-radius: 10px;
+}
+.registBtn{
+    margin: 10px;
+}
+input:focus{
+    outline: none;
+}
+.type{
+    width: 480px;
+    height: 50px;
+    margin: 10px 10px 0px 10px;
+    font-size: 20px;
+    border: 1px solid green;
+}

@@ -1,0 +1,46 @@
+.box{
+    background: #0B1746;
+    position: absolute;
+    padding: 0px;
+}
+#content{
+    background: white;
+}
+#title{
+    padding: 0px;
+    font-size: 30px;
+    color: white;
+}
+#menu ul{
+    padding: 0px;
+    margin: 0px;
+    position: absolute;
+    top: 10px;
+}
+#menu li{
+    list-style-type: none;
+    text-align: center;
+    border-bottom: 1px solid white;
+    padding: 0px;
+    margin: 5px 0px 0px 0px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+}
+#menu li:hover{
+    background: #082E54;
+}
+#tableContent td{
+    text-align: center;
+    color: white;
+    border: 0.5px solid black;
+    color: black;
+}
+#tableContent table{
+
+    border:1px solid black;
+}
+#commit{
+    text-align: center;
+    height: 100px;
+}
